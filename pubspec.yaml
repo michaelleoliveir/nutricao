@@ -24,8 +24,9 @@ flutter:
   assets:
     - assets/background.png
     - assets/user.png
+    - assets/fonts
 
   fonts:
     - family: Inter
-    - fonts:
-      - asset: assets/fonts/Inter-Regular.ttf
+      fonts:
+        - asset: assets/fonts/Inter-Regular.ttf
