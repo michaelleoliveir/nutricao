@@ -12,6 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
+  font_awesome_flutter: 10.6.0
 
 dev_dependencies:
   flutter_test:
@@ -24,9 +25,3 @@ flutter:
   assets:
     - assets/background.png
     - assets/user.png
-    - assets/fonts
-
-  fonts:
-    - family: Inter
-      fonts:
-        - asset: assets/fonts/Inter-Regular.ttf
