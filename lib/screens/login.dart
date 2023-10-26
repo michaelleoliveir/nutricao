@@ -14,7 +14,7 @@ class LoginPage extends StatelessWidget {
                   image: AssetImage('assets/background.png'),
                   fit: BoxFit.cover,
                   colorFilter:
-                      ColorFilter.mode(Colors.white, BlendMode.dstATop),
+                      ColorFilter.mode(Color(0xFFFAF1E4), BlendMode.dstATop),
                   opacity: 0.30)),
         ),
         Scaffold(
@@ -86,31 +86,31 @@ class LoginPage extends StatelessWidget {
                   style: TextStyle(height: 65, color: Color(0xFF435334)),
                 ),
               ),
-              const SingleChildScrollView(
-                child: Center(
-                  heightFactor: 21,
+
+              Positioned(
+                  bottom: 240,
+                  left: 135,
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.pushNamed(context, '/main');
                     },
-                    style: ButtonStyle(
+                    style: const ButtonStyle(
                       backgroundColor:
                           MaterialStatePropertyAll(Color(0xFF9EB384)),
                       minimumSize: MaterialStatePropertyAll(Size(130, 50)),
                     ),
-                    child: Text(
+                    child: const Text(
                       'Entrar',
                       style: TextStyle(fontSize: 18, color: Color(0xFF435334)),
                     ),
                   ),
                 ),
-              ),
-              const SingleChildScrollView(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(top: 600),
+                      padding: EdgeInsets.only(top:600),
                       child: IconButton(
                         onPressed: null,
                         icon: Icon(Icons.facebook),
@@ -147,22 +147,6 @@ class LoginPage extends StatelessWidget {
                     ),
                   ],
                 ),
-              ),
-              const Center(
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      Text(
-                        'Cadastre-se',
-                        style: TextStyle(
-                          height: 97,
-                          color: Color.fromARGB(255, 67, 72, 60),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              )
             ],
           ),
         )
