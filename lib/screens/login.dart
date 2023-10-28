@@ -38,7 +38,7 @@ class LoginPage extends StatelessWidget {
                     ),
                     Container(
                       margin: const EdgeInsets.all(20),
-                      child: TextField(
+                      child: TextFormField(
                         keyboardType: TextInputType.text,
                         decoration: InputDecoration(
                             hintText: "Email",
@@ -58,7 +58,8 @@ class LoginPage extends StatelessWidget {
                     ),
                     Container(
                       margin: const EdgeInsets.all(20),
-                      child: TextField(
+                      child: TextFormField(
+                        obscureText: true,
                         keyboardType: TextInputType.text,
                         decoration: InputDecoration(
                             hintText: "Senha",
@@ -73,7 +74,9 @@ class LoginPage extends StatelessWidget {
                             enabledBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
                                 borderSide: const BorderSide(
-                                    color: Colors.transparent))),
+                                    color: Colors.transparent),
+                          ),
+                        ),
                       ),
                     ),
                   ],
