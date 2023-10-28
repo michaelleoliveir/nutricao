@@ -8,6 +8,14 @@ class MainPage extends StatefulWidget {
   State<MainPage> createState() => _MainPageState();
 }
 
+final List<String> imgList = [
+  'assets/chocolate.jpg',
+  'assets/cookie.jpg',
+  'assets/juice.jpg',
+  'assets/orange.jpg',
+  'assets/tomato.jpg',
+];
+
 class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
@@ -123,13 +131,13 @@ class _MainPageState extends State<MainPage> {
             ),
 
             // CARROSEL DE ITENS
-            const Column(
+            Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 35,
                 ),
-                Text(
+                const Text(
                   'Principais itens cadastrados',
                   style: TextStyle(
                     fontSize: 17,
@@ -137,9 +145,26 @@ class _MainPageState extends State<MainPage> {
                     height: 3,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
-                )
+                ),
+                CarouselSlider(
+                    items: imgList
+                        .map((item) => Center(
+                              child: Center(
+                                child: Image.network(
+                                  item,
+                                  fit: BoxFit.cover,
+                                  width: 100,
+                                ),
+                              ),
+                            ))
+                        .toList(),
+                    options: CarouselOptions(
+                      autoPlay: false,
+                      aspectRatio: 2.0,
+                      enlargeCenterPage: true,
+                    ))
               ],
             )
           ],
