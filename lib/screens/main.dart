@@ -8,14 +8,6 @@ class MainPage extends StatefulWidget {
   State<MainPage> createState() => _MainPageState();
 }
 
-final List<String> imgList = [
-  'assets/chocolate.jpg',
-  'assets/cookie.jpg',
-  'assets/juice.jpg',
-  'assets/orange.jpg',
-  'assets/tomato.jpg',
-];
-
 class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
@@ -149,22 +141,28 @@ class _MainPageState extends State<MainPage> {
                   height: 20,
                 ),
                 CarouselSlider(
-                    items: imgList
-                        .map((item) => Center(
-                              child: Center(
-                                child: Image.network(
-                                  item,
-                                  fit: BoxFit.cover,
-                                  width: 100,
-                                ),
-                              ),
-                            ))
-                        .toList(),
-                    options: CarouselOptions(
-                      autoPlay: false,
-                      aspectRatio: 2.0,
-                      enlargeCenterPage: true,
-                    ))
+                  items: [1, 2, 3, 4, 5].map(
+                    (i) {
+                      return Container(
+                        width: MediaQuery.of(context).size.width,
+                        margin: const EdgeInsets.symmetric(horizontal: 5),
+                        decoration: BoxDecoration(
+                          color: Colors.amber,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Center(
+                          child: Text(
+                            'Item $i',
+                            style: const TextStyle(fontSize: 12),
+                          ),
+                        ),
+                      );
+                    },
+                  ).toList(),
+                  options: CarouselOptions(
+                    height: 300,
+                  ),
+                ),
               ],
             )
           ],
