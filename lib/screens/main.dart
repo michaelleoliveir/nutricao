@@ -17,19 +17,24 @@ class _MainPageState extends State<MainPage> {
         toolbarHeight: 75,
         elevation: 9,
         shadowColor: const Color.fromARGB(255, 230, 221, 209),
-        automaticallyImplyLeading: true,
+        automaticallyImplyLeading: false,
         title: const Text(
           'Nutrição',
           style: TextStyle(color: Color(0xFF435334)),
         ),
         backgroundColor: const Color(0xFFFAF1E4),
-        actions: const <Widget>[
-          IconButton(
-            onPressed: null,
-            icon: Icon(
-              Icons.exit_to_app,
-              color: Color(0xFF435334),
-              size: 35,
+        actions: <Widget>[
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, '/home');
+            },
+            child: const IconButton(
+              onPressed: null,
+              icon: Icon(
+                Icons.exit_to_app,
+                color: Color(0xFF435334),
+                size: 35,
+              ),
             ),
           ),
         ],
@@ -38,45 +43,49 @@ class _MainPageState extends State<MainPage> {
         child: Column(
           children: [
             // BARRA DE PESQUISA
-            Container(
-              margin: const EdgeInsets.only(
-                  top: 25, bottom: 30, left: 10, right: 10),
-              padding: const EdgeInsets.all(15),
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: const Color(0xffcedebd),
-                borderRadius: BorderRadius.circular(14),
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(0, 0.25, 50, 0.5),
-                    width: 13.5,
-                    height: 30,
-                    child: const Icon(
-                      Icons.search,
-                      size: 30,
-                      color: Color(0xFF435334),
-                    ),
-                  ),
-                  Container(
-                    alignment: Alignment.bottomLeft,
-                    margin: const EdgeInsets.fromLTRB(0, 0, 0, 2),
-                    child: const Text(
-                      'Tente “Menu matutino”',
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w400,
-                        height: 1.2125,
-                        color: Color(0x91435334),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/search');
+              },
+              child: Container(
+                margin: const EdgeInsets.only(
+                    top: 25, bottom: 30, left: 10, right: 10),
+                padding: const EdgeInsets.all(15),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: const Color(0xffcedebd),
+                  borderRadius: BorderRadius.circular(14),
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.fromLTRB(0, 0.25, 50, 0.5),
+                      width: 13.5,
+                      height: 30,
+                      child: const Icon(
+                        Icons.search,
+                        size: 30,
+                        color: Color(0xFF435334),
                       ),
                     ),
-                  ),
-                ],
+                    Container(
+                      alignment: Alignment.bottomLeft,
+                      margin: const EdgeInsets.fromLTRB(0, 0, 0, 2),
+                      child: const Text(
+                        'Tente “Menu matutino”',
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w400,
+                          height: 1.2125,
+                          color: Color(0x91435334),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-
             // IMAGEM DA MULHER
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -146,7 +155,7 @@ class _MainPageState extends State<MainPage> {
                       width: MediaQuery.of(context).size.width,
                       margin: const EdgeInsets.symmetric(horizontal: 5),
                       decoration: BoxDecoration(
-                          color: Colors.amber,
+                          color: const Color(0xffcedebd),
                           borderRadius: BorderRadius.circular(10)),
                       child: Center(
                         child: Text(
@@ -161,6 +170,233 @@ class _MainPageState extends State<MainPage> {
                   options: CarouselOptions(
                     height: 300,
                   ),
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
+                const Text(
+                  'Cardápios cadastrados',
+                  style: TextStyle(
+                    fontSize: 17,
+                    color: Color(0xff435334),
+                    height: 3,
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  margin: const EdgeInsets.fromLTRB(7, 0, 0, 7),
+                  padding: const EdgeInsets.fromLTRB(16, 25, 25, 16),
+                  width: 365,
+                  height: 140,
+                  decoration: BoxDecoration(
+                    color: const Color(0xffcedebd),
+                    borderRadius: BorderRadius.circular(17),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(3, 0, 0, 3),
+                        child: const Text(
+                          'Cardápio Naturel',
+                          style: TextStyle(
+                            fontSize: 29,
+                            fontWeight: FontWeight.w600,
+                            height: 1.5,
+                            color: Color(0xff435334),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(1, 0, 205, 0),
+                        width: double.infinity,
+                        height: 15,
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.fromLTRB(1, 1, 3, 1.42),
+                              height: double.infinity,
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    margin:
+                                        const EdgeInsets.fromLTRB(0, 10, 15, 0),
+                                    width: 9.59,
+                                    height: 9.58,
+                                    child: const Icon(
+                                      Icons.animation_outlined,
+                                      size: 32,
+                                      color: Color(0xFF435334),
+                                    ),
+                                  ),
+                                  Container(
+                                    margin: const EdgeInsets.fromLTRB(
+                                        60, 10, 15, 0),
+                                    width: 9.59,
+                                    height: 9.58,
+                                    child: const Icon(
+                                      Icons.animation_outlined,
+                                      size: 32,
+                                      color: Color(0xFF435334),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  margin: const EdgeInsets.fromLTRB(7, 0, 0, 7),
+                  padding: const EdgeInsets.fromLTRB(16, 25, 25, 16),
+                  width: 365,
+                  height: 140,
+                  decoration: BoxDecoration(
+                    color: const Color(0xffcedebd),
+                    borderRadius: BorderRadius.circular(17),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(3, 0, 0, 3),
+                        child: const Text(
+                          'Cardápio Carboidrato',
+                          style: TextStyle(
+                            fontSize: 29,
+                            fontWeight: FontWeight.w600,
+                            height: 1.5,
+                            color: Color(0xff435334),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(1, 0, 205, 0),
+                        width: double.infinity,
+                        height: 15,
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.fromLTRB(1, 1, 3, 1.42),
+                              height: double.infinity,
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    margin:
+                                        const EdgeInsets.fromLTRB(0, 10, 15, 0),
+                                    width: 9.59,
+                                    height: 9.58,
+                                    child: const Icon(
+                                      Icons.animation_outlined,
+                                      size: 32,
+                                      color: Color(0xFF435334),
+                                    ),
+                                  ),
+                                  Container(
+                                    margin: const EdgeInsets.fromLTRB(
+                                        60, 10, 15, 0),
+                                    width: 9.59,
+                                    height: 9.58,
+                                    child: const Icon(
+                                      Icons.animation_outlined,
+                                      size: 32,
+                                      color: Color(0xFF435334),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  margin: const EdgeInsets.fromLTRB(7, 0, 0, 7),
+                  padding: const EdgeInsets.fromLTRB(16, 25, 25, 16),
+                  width: 365,
+                  height: 140,
+                  decoration: BoxDecoration(
+                    color: const Color(0xffcedebd),
+                    borderRadius: BorderRadius.circular(17),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(3, 0, 0, 3),
+                        child: const Text(
+                          'Cardápio Italiano',
+                          style: TextStyle(
+                            fontSize: 29,
+                            fontWeight: FontWeight.w600,
+                            height: 1.5,
+                            color: Color(0xff435334),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(1, 0, 205, 0),
+                        width: double.infinity,
+                        height: 15,
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.fromLTRB(1, 1, 3, 1.42),
+                              height: double.infinity,
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    margin:
+                                        const EdgeInsets.fromLTRB(0, 10, 15, 0),
+                                    width: 9.59,
+                                    height: 9.58,
+                                    child: const Icon(
+                                      Icons.animation_outlined,
+                                      size: 32,
+                                      color: Color(0xFF435334),
+                                    ),
+                                  ),
+                                  Container(
+                                    margin: const EdgeInsets.fromLTRB(
+                                        60, 10, 15, 0),
+                                    width: 9.59,
+                                    height: 9.58,
+                                    child: const Icon(
+                                      Icons.animation_outlined,
+                                      size: 32,
+                                      color: Color(0xFF435334),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
                 ),
               ],
             ),
