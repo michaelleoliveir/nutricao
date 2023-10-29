@@ -78,7 +78,7 @@ class _MainPageState extends State<MainPage> {
                           fontSize: 15,
                           fontWeight: FontWeight.w400,
                           height: 1.2125,
-                          color: Color(0x91435334),
+                          color: Color(0xFF435334),
                         ),
                       ),
                     ),
@@ -393,6 +393,30 @@ class _MainPageState extends State<MainPage> {
                         ),
                       ),
                     ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/cadastro');
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.fromLTRB(7, 0, 0, 7),
+                    padding: const EdgeInsets.fromLTRB(16, 8, 18, 16),
+                    width: 150,
+                    height: 55,
+                    decoration: BoxDecoration(
+                      color: const Color(0xffcedebd),
+                      borderRadius: BorderRadius.circular(17),
+                    ),
+                    alignment: Alignment.center,
+                    child: const Icon(
+                      Icons.add,
+                      color: Color(0xFF435334),
+                      size: 40,
+                    ),
                   ),
                 ),
                 const SizedBox(

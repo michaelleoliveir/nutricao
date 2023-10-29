@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'screens/login.dart';
 import 'screens/main.dart';
 import 'screens/search.dart';
+import 'screens/cadastro_cardapio.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
         '/main': (context) => const MainPage(),
         '/search': (context) => const SearchScreen(),
         '/home' : (context) => const LoginPage(),
+        '/cadastro' : (context) => const CadastroCardapio(),
       },
     );
   }

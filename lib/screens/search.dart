@@ -110,6 +110,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         children: [
                           searchSuggestionsTiem("sushi"),
                           searchSuggestionsTiem("sanduíche"),
+                          searchSuggestionsTiem("café")
                         ],
                       ),
                       const SizedBox(
@@ -119,6 +120,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         children: [
                           searchSuggestionsTiem("massa"),
                           searchSuggestionsTiem("maça"),
+                          searchSuggestionsTiem("amendoim")
                         ],
                       ),
                     ],
