@@ -21,13 +21,13 @@ class LoginPage extends StatelessWidget {
           backgroundColor: Colors.transparent,
           body: Stack(
             children: [
-              Positioned(
+              const Positioned(
                 top: 120, // Ajuste a posição vertical
                 left: 122, // Ajuste a posição horizontal
-                child: Image.asset(
-                  'assets/user.png',
-                  width: 147, // Ajuste a largura
-                  height: 147, // Ajuste a altura
+                child: Icon(
+                  Icons.perm_identity,
+                  size: 160,
+                  color: Color(0xFF435334),
                 ),
               ),
               Center(
@@ -93,18 +93,20 @@ class LoginPage extends StatelessWidget {
               Positioned(
                   bottom: 240,
                   left: 135,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/main');
-                    },
-                    style: const ButtonStyle(
-                      backgroundColor:
-                          MaterialStatePropertyAll(Color(0xFF9EB384)),
-                      minimumSize: MaterialStatePropertyAll(Size(130, 50)),
-                    ),
-                    child: const Text(
-                      'Entrar',
-                      style: TextStyle(fontSize: 18, color: Color(0xFF435334)),
+                  child: SingleChildScrollView(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/main');
+                      },
+                      style: const ButtonStyle(
+                        backgroundColor:
+                            MaterialStatePropertyAll(Color(0xFF9EB384)),
+                        minimumSize: MaterialStatePropertyAll(Size(130, 50)),
+                      ),
+                      child: const Text(
+                        'Entrar',
+                        style: TextStyle(fontSize: 18, color: Color(0xFF435334)),
+                      ),
                     ),
                   ),
                 ),

@@ -25,45 +25,47 @@ class _SearchScreenState extends State<SearchScreen> {
         child: Column(
           children: [
             // Search Bar
-            Container(
-              color: const Color(0xFFFAF1E4),
-              child: Padding(
-                padding: const EdgeInsets.all(20),
-                child: Row(
-                  children: [
-                    IconButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        icon: const Icon(
-                          Icons.arrow_back_ios,
-                          color: Color(0xFF435334),
-                        )),
-                    Expanded(
-                      child: CostomTextFormFild(
-                        hint: "Pesquisar",
-                        prefixIcon: IconlyLight.search,
-                        controller: searchController,
-                        filled: true,
-                        suffixIcon: searchController.text.isEmpty
-                            ? null
-                            : Icons.cancel_sharp,
-                        onTapSuffixIcon: () {
-                          searchController.clear();
-                        },
-                        onChanged: (pure) {
-                          setState(() {});
-                        },
-                        onEditingComplete: () {
-                          previousSearchs.add(searchController.text);
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const MainPage()));
-                        },
+            SingleChildScrollView(
+              child: Container(
+                color: const Color(0xFFFAF1E4),
+                child: Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Row(
+                    children: [
+                      IconButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          icon: const Icon(
+                            Icons.arrow_back_ios,
+                            color: Color(0xFF435334),
+                          )),
+                      Expanded(
+                        child: CostomTextFormFild(
+                          hint: "Pesquisar",
+                          prefixIcon: IconlyLight.search,
+                          controller: searchController,
+                          filled: true,
+                          suffixIcon: searchController.text.isEmpty
+                              ? null
+                              : Icons.cancel_sharp,
+                          onTapSuffixIcon: () {
+                            searchController.clear();
+                          },
+                          onChanged: (pure) {
+                            setState(() {});
+                          },
+                          onEditingComplete: () {
+                            previousSearchs.add(searchController.text);
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const MainPage()));
+                          },
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -73,13 +75,16 @@ class _SearchScreenState extends State<SearchScreen> {
             ),
 
             // Previous Searches
-            Container(
-              color: const Color.fromARGB(225, 239, 230, 216),
-              child: ListView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: previousSearchs.length,
-                  itemBuilder: (context, index) => previousSearchsItem(index)),
+            SingleChildScrollView(
+              child: Container(
+                color: const Color.fromARGB(225, 239, 230, 216),
+                child: ListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: previousSearchs.length,
+                    itemBuilder: (context, index) =>
+                        previousSearchsItem(index)),
+              ),
             ),
             const SizedBox(
               height: 50,
@@ -87,37 +92,38 @@ class _SearchScreenState extends State<SearchScreen> {
 
             // Search Suggestions
             Container(
-              width: double.infinity,
-              color: const Color(0xFFFAF1E4),
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Pesquisas Sugeridas",
-                    style: Theme.of(context).textTheme.displayMedium,
-                  ),
-                  const SizedBox(
-                    height: 24,
-                  ),
-                  Row(
+                width: double.infinity,
+                color: const Color(0xFFFAF1E4),
+                padding: const EdgeInsets.all(20),
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      searchSuggestionsTiem("sushi"),
-                      searchSuggestionsTiem("sanduíche"),
+                      Text(
+                        "Pesquisas Sugeridas",
+                        style: Theme.of(context).textTheme.displayMedium,
+                      ),
+                      const SizedBox(
+                        height: 24,
+                      ),
+                      Row(
+                        children: [
+                          searchSuggestionsTiem("sushi"),
+                          searchSuggestionsTiem("sanduíche"),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 16,
+                      ),
+                      Row(
+                        children: [
+                          searchSuggestionsTiem("massa"),
+                          searchSuggestionsTiem("maça"),
+                        ],
+                      ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  Row(
-                    children: [
-                      searchSuggestionsTiem("massa"),
-                      searchSuggestionsTiem("maça"),
-                    ],
-                  ),
-                ],
-              ),
-            )
+                )),
           ],
         ),
       ),
