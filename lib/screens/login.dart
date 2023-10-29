@@ -62,19 +62,19 @@ class LoginPage extends StatelessWidget {
                         obscureText: true,
                         keyboardType: TextInputType.text,
                         decoration: InputDecoration(
-                            hintText: "Senha",
-                            hintStyle: const TextStyle(
-                              fontSize: 18,
-                              fontStyle: FontStyle.normal,
-                              color: Color(0xFF435334),
-                            ),
-                            contentPadding: const EdgeInsets.all(13),
-                            filled: true,
-                            fillColor: const Color(0xFF9EB384),
-                            enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                borderSide: const BorderSide(
-                                    color: Colors.transparent),
+                          hintText: "Senha",
+                          hintStyle: const TextStyle(
+                            fontSize: 18,
+                            fontStyle: FontStyle.normal,
+                            color: Color(0xFF435334),
+                          ),
+                          contentPadding: const EdgeInsets.all(13),
+                          filled: true,
+                          fillColor: const Color(0xFF9EB384),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide:
+                                const BorderSide(color: Colors.transparent),
                           ),
                         ),
                       ),
@@ -89,67 +89,65 @@ class LoginPage extends StatelessWidget {
                   style: TextStyle(height: 65, color: Color(0xFF435334)),
                 ),
               ),
-
-              Positioned(
-                  bottom: 240,
-                  left: 135,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/main');
-                    },
-                    style: const ButtonStyle(
-                      backgroundColor:
-                          MaterialStatePropertyAll(Color(0xFF9EB384)),
-                      minimumSize: MaterialStatePropertyAll(Size(130, 50)),
-                    ),
-                    child: const Text(
-                      'Entrar',
-                      style: TextStyle(fontSize: 18, color: Color(0xFF435334)),
-                    ),
+              Container(
+                height: 550,
+                alignment: Alignment.bottomCenter,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/main');
+                  },
+                  style: const ButtonStyle(
+                    backgroundColor:
+                        MaterialStatePropertyAll(Color(0xFF9EB384)),
+                    minimumSize: MaterialStatePropertyAll(Size(130, 50)),
+                  ),
+                  child: const Text(
+                    'Entrar',
+                    style: TextStyle(fontSize: 18, color: Color(0xFF435334)),
                   ),
                 ),
-
+              ),
               const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(top:600),
-                      child: IconButton(
-                        onPressed: null,
-                        icon: Icon(Icons.facebook),
-                        style: ButtonStyle(
-                            iconSize: MaterialStatePropertyAll(40),
-                            iconColor:
-                                MaterialStatePropertyAll(Color(0xFF435334)),
-                            alignment: Alignment.center),
-                      ),
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(top: 600),
+                    child: IconButton(
+                      onPressed: null,
+                      icon: Icon(Icons.facebook),
+                      style: ButtonStyle(
+                          iconSize: MaterialStatePropertyAll(40),
+                          iconColor:
+                              MaterialStatePropertyAll(Color(0xFF435334)),
+                          alignment: Alignment.center),
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 600),
-                      child: IconButton(
-                        onPressed: null,
-                        icon: Icon(Icons.email),
-                        style: ButtonStyle(
-                            iconSize: MaterialStatePropertyAll(40),
-                            iconColor:
-                                MaterialStatePropertyAll(Color(0xFF435334)),
-                            alignment: Alignment.center),
-                      ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 600),
+                    child: IconButton(
+                      onPressed: null,
+                      icon: Icon(Icons.email),
+                      style: ButtonStyle(
+                          iconSize: MaterialStatePropertyAll(40),
+                          iconColor:
+                              MaterialStatePropertyAll(Color(0xFF435334)),
+                          alignment: Alignment.center),
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 600),
-                      child: IconButton(
-                        onPressed: null,
-                        icon: FaIcon(FontAwesomeIcons.google),
-                        style: ButtonStyle(
-                            iconSize: MaterialStatePropertyAll(30),
-                            iconColor:
-                                MaterialStatePropertyAll(Color(0xFF435334)),
-                            alignment: Alignment.center),
-                      ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 600),
+                    child: IconButton(
+                      onPressed: null,
+                      icon: FaIcon(FontAwesomeIcons.google),
+                      style: ButtonStyle(
+                          iconSize: MaterialStatePropertyAll(30),
+                          iconColor:
+                              MaterialStatePropertyAll(Color(0xFF435334)),
+                          alignment: Alignment.center),
                     ),
-                  ],
-                ),
+                  ),
+                ],
+              ),
             ],
           ),
         )
