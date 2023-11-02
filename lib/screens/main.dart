@@ -10,6 +10,12 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  final urlImages = [
+    'https://images.unsplash.com/photo-1607305387299-a3d9611cd469?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&q=80&w=1965&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -150,23 +156,22 @@ class _MainPageState extends State<MainPage> {
                 const SizedBox(
                   height: 20,
                 ),
-                CarouselSlider(
-                  items: [1, 2, 3, 4, 5].map((i) {
-                    return Container(
-                      width: MediaQuery.of(context).size.width,
-                      margin: const EdgeInsets.symmetric(horizontal: 5),
-                      decoration: BoxDecoration(
-                          color: const Color(0xffcedebd),
-                          borderRadius: BorderRadius.circular(10)),
-                      child: const Icon(
-                        Icons.add,
-                        size: 60,
-                        color: Color(0xff435334),
-                      ),
-                    );
-                  }).toList(),
-                  options: CarouselOptions(
-                    height: 300,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/comidas');
+                  },
+                  child: CarouselSlider.builder(
+                    options: CarouselOptions(
+                      height: 350,
+                      reverse: true,
+                      enlargeCenterPage: true,
+                    ),
+                    itemCount: urlImages.length,
+                    itemBuilder: (context, index, realIndex) {
+                      final urlImage = urlImages[index];
+
+                      return buildImage(urlImage, index);
+                    },
                   ),
                 ),
                 const SizedBox(
@@ -427,4 +432,15 @@ class _MainPageState extends State<MainPage> {
       ),
     );
   }
+
+  Widget buildImage(String urlImage, int index) => Container(
+        margin: const EdgeInsets.symmetric(horizontal: 10),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(20), // Define o raio da borda
+          child: Image.network(
+            urlImage,
+            fit: BoxFit.cover,
+          ),
+        ),
+      );
 }
