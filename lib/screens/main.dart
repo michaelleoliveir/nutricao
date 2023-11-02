@@ -425,6 +425,31 @@ class _MainPageState extends State<MainPage> {
                 const SizedBox(
                   height: 20,
                 ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/info');
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.only(left: 145),
+                    child: const Row(
+                      children: [
+                        Icon(
+                          CupertinoIcons.info,
+                          color: Color(0xFF435334),
+                        ),
+                        Text(
+                          ' Sobre o app',
+                          style: TextStyle(
+                            color: Color(0xFF435334)
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                )
               ],
             ),
           ],

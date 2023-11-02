@@ -141,7 +141,30 @@ class _ProfilePage extends State<ProfilePage> {
                     ),
                   )
                 ],
-              )
+              ),
+              const SizedBox(
+                height: 35,
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, '/info');
+                },
+                child: Container(
+                  padding: const EdgeInsets.only(left: 130),
+                  child: const Row(
+                    children: [
+                      Icon(
+                        CupertinoIcons.info,
+                        color: Color(0xFF435334),
+                      ),
+                      Text(
+                        ' Sobre o app',
+                        style: TextStyle(color: Color(0xFF435334)),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ),

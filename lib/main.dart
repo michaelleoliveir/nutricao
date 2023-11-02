@@ -5,6 +5,7 @@ import 'screens/search.dart';
 import 'screens/cadastro_cardapio.dart';
 import 'screens/profile.dart';
 import 'screens/comidas.dart';
+import 'screens/info.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
         '/cadastro': (context) => const CadastroCardapio(),
         '/profile': (context) => const ProfilePage(),
         '/comidas' : (context) => const ComidasPage(),
+        '/info' : (context) => const InfoPage(),
       },
     );
   }
