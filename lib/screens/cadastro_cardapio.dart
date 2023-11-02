@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nutricao/items/checkbox_state.dart';
 
 class CadastroCardapio extends StatefulWidget {
   const CadastroCardapio({super.key});
@@ -8,6 +9,33 @@ class CadastroCardapio extends StatefulWidget {
 }
 
 class _CadastroCardapioState extends State<CadastroCardapio> {
+  final cafe = [
+    CheckBoxState(title: 'Biscoito'),
+    CheckBoxState(title: 'Bolacha'),
+    CheckBoxState(title: 'Achocolatado'),
+    CheckBoxState(title: 'Bolo'),
+    CheckBoxState(title: 'Café'),
+    CheckBoxState(title: 'Cereal'),
+  ];
+
+  final almoco = [
+    CheckBoxState(title: 'Massa'),
+    CheckBoxState(title: 'Arroz'),
+    CheckBoxState(title: 'Feijão'),
+    CheckBoxState(title: 'Sushi'),
+    CheckBoxState(title: 'Salada'),
+    CheckBoxState(title: 'Carne vermelha'),
+  ];
+
+  final janta = [
+    CheckBoxState(title: 'Pizza'),
+    CheckBoxState(title: 'Hamburger'),
+    CheckBoxState(title: 'Sushi'),
+    CheckBoxState(title: 'Esfiha'),
+    CheckBoxState(title: 'Pão'),
+    CheckBoxState(title: 'Bolachas'),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -164,7 +192,7 @@ class _CadastroCardapioState extends State<CadastroCardapio> {
               margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
               padding: const EdgeInsets.only(top: 8, right: 18),
               width: 350,
-              height: 270,
+              height: 400,
               decoration: BoxDecoration(
                 color: const Color(0xffcedebd),
                 borderRadius: BorderRadius.circular(17),
@@ -182,6 +210,9 @@ class _CadastroCardapioState extends State<CadastroCardapio> {
                           fontWeight: FontWeight.w500),
                     ),
                   ),
+                  Column(
+                    children: [...cafe.map(buildSingleCheckBox).toList()],
+                  )
                 ],
               ),
             ),
@@ -192,7 +223,7 @@ class _CadastroCardapioState extends State<CadastroCardapio> {
               margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
               padding: const EdgeInsets.only(top: 8, right: 18),
               width: 350,
-              height: 270,
+              height: 400,
               decoration: BoxDecoration(
                 color: const Color(0xffcedebd),
                 borderRadius: BorderRadius.circular(17),
@@ -210,6 +241,9 @@ class _CadastroCardapioState extends State<CadastroCardapio> {
                           fontWeight: FontWeight.w500),
                     ),
                   ),
+                  Column(
+                    children: [...almoco.map(buildSingleCheckBox).toList()],
+                  )
                 ],
               ),
             ),
@@ -220,7 +254,7 @@ class _CadastroCardapioState extends State<CadastroCardapio> {
               margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
               padding: const EdgeInsets.only(top: 8, right: 18),
               width: 350,
-              height: 270,
+              height: 400,
               decoration: BoxDecoration(
                 color: const Color(0xffcedebd),
                 borderRadius: BorderRadius.circular(17),
@@ -238,15 +272,72 @@ class _CadastroCardapioState extends State<CadastroCardapio> {
                           fontWeight: FontWeight.w500),
                     ),
                   ),
+                  Column(
+                    children: [...janta.map(buildSingleCheckBox).toList()],
+                  )
                 ],
               ),
             ),
             const SizedBox(
-              height: 20,
-            )
+              height: 30,
+            ),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                OutlinedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/main');
+                  },
+                  style: OutlinedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(horizontal: 40),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20))),
+                  child: const Text(
+                    "CANCELAR",
+                    style: TextStyle(
+                        fontSize: 15,
+                        letterSpacing: 2,
+                        color: Color(0xFF435334)),
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/main');
+                  },
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF435334),
+                      padding: const EdgeInsets.symmetric(horizontal: 50),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20))),
+                  child: const Text(
+                    'SALVAR',
+                    style: TextStyle(
+                      fontSize: 15,
+                      letterSpacing: 2,
+                      color: Color(0xFFFAF1E4),
+                    ),
+                  ),
+                )
+              ],
+            ),
+
+            const SizedBox(
+              height: 30,
+            ),
           ],
         ),
       ),
     );
   }
+
+  Widget buildSingleCheckBox(CheckBoxState checkbox) => CheckboxListTile(
+      activeColor: const Color(0xFF435334),
+      controlAffinity: ListTileControlAffinity.leading,
+      value: checkbox.value,
+      title: Text(
+        checkbox.title,
+        style: const TextStyle(color: Color(0xFF435334), fontSize: 14),
+      ),
+      onChanged: (value) => setState(() => checkbox.value = value!));
 }

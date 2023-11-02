@@ -334,7 +334,55 @@ class _ComidasPage extends State<ComidasPage> {
 
             Column(
               children: [...categoria.map(buildSingleCheckBox).toList()],
-            )
+            ),
+
+            const SizedBox(
+              height: 30,
+            ),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                OutlinedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/main');
+                  },
+                  style: OutlinedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(horizontal: 40),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20))),
+                  child: const Text(
+                    "CANCELAR",
+                    style: TextStyle(
+                        fontSize: 15,
+                        letterSpacing: 2,
+                        color: Color(0xFF435334)),
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/main');
+                  },
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF435334),
+                      padding: const EdgeInsets.symmetric(horizontal: 50),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20))),
+                  child: const Text(
+                    'SALVAR',
+                    style: TextStyle(
+                      fontSize: 15,
+                      letterSpacing: 2,
+                      color: Color(0xFFFAF1E4),
+                    ),
+                  ),
+                )
+              ],
+            ),
+
+            const SizedBox(
+              height: 30,
+            ),
           ],
         ),
       ),
