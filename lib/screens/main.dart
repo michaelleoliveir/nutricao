@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -19,7 +20,7 @@ class _MainPageState extends State<MainPage> {
         shadowColor: const Color.fromARGB(255, 230, 221, 209),
         automaticallyImplyLeading: false,
         title: const Text(
-          'Nutrição',
+          'Naturel',
           style: TextStyle(color: Color(0xFF435334)),
         ),
         backgroundColor: const Color(0xFFFAF1E4),
@@ -157,13 +158,10 @@ class _MainPageState extends State<MainPage> {
                       decoration: BoxDecoration(
                           color: const Color(0xffcedebd),
                           borderRadius: BorderRadius.circular(10)),
-                      child: Center(
-                        child: Text(
-                          'Item $i',
-                          style: const TextStyle(
-                            fontSize: 10,
-                          ),
-                        ),
+                      child: const Icon(
+                        Icons.add,
+                        size: 60,
+                        color: Color(0xff435334),
                       ),
                     );
                   }).toList(),
@@ -228,7 +226,7 @@ class _MainPageState extends State<MainPage> {
                                     width: 9.59,
                                     height: 9.58,
                                     child: const Icon(
-                                      Icons.animation_outlined,
+                                      CupertinoIcons.tag,
                                       size: 32,
                                       color: Color(0xFF435334),
                                     ),
@@ -239,7 +237,7 @@ class _MainPageState extends State<MainPage> {
                                     width: 9.59,
                                     height: 9.58,
                                     child: const Icon(
-                                      Icons.animation_outlined,
+                                      CupertinoIcons.tag,
                                       size: 32,
                                       color: Color(0xFF435334),
                                     ),
@@ -299,7 +297,7 @@ class _MainPageState extends State<MainPage> {
                                     width: 9.59,
                                     height: 9.58,
                                     child: const Icon(
-                                      Icons.animation_outlined,
+                                      CupertinoIcons.tag,
                                       size: 32,
                                       color: Color(0xFF435334),
                                     ),
@@ -310,7 +308,7 @@ class _MainPageState extends State<MainPage> {
                                     width: 9.59,
                                     height: 9.58,
                                     child: const Icon(
-                                      Icons.animation_outlined,
+                                      CupertinoIcons.tag,
                                       size: 32,
                                       color: Color(0xFF435334),
                                     ),
@@ -370,7 +368,7 @@ class _MainPageState extends State<MainPage> {
                                     width: 9.59,
                                     height: 9.58,
                                     child: const Icon(
-                                      Icons.animation_outlined,
+                                      CupertinoIcons.tag,
                                       size: 32,
                                       color: Color(0xFF435334),
                                     ),
@@ -381,7 +379,7 @@ class _MainPageState extends State<MainPage> {
                                     width: 9.59,
                                     height: 9.58,
                                     child: const Icon(
-                                      Icons.animation_outlined,
+                                      CupertinoIcons.tag,
                                       size: 32,
                                       color: Color(0xFF435334),
                                     ),

@@ -18,7 +18,7 @@ class _CadastroCardapioState extends State<CadastroCardapio> {
         shadowColor: const Color.fromARGB(255, 230, 221, 209),
         automaticallyImplyLeading: true,
         title: const Text(
-          'Nutrição',
+          'Naturel',
           style: TextStyle(color: Color(0xFF435334)),
         ),
         backgroundColor: const Color(0xFFFAF1E4),
@@ -113,19 +113,24 @@ class _CadastroCardapioState extends State<CadastroCardapio> {
                     ),
                   ),
                 ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(15, 0, 1, 0),
-                  padding: const EdgeInsets.fromLTRB(1, 1, 1, 1),
-                  height: 100,
-                  width: 100,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffcedebd),
-                    borderRadius: BorderRadius.circular(70),
-                  ),
-                  child: const Icon(
-                    Icons.add,
-                    color: Color(0xff435334),
-                    size: 40,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/profile');
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.fromLTRB(15, 0, 1, 0),
+                    padding: const EdgeInsets.fromLTRB(1, 1, 1, 1),
+                    height: 100,
+                    width: 100,
+                    decoration: BoxDecoration(
+                      color: const Color(0xffcedebd),
+                      borderRadius: BorderRadius.circular(70),
+                    ),
+                    child: const Icon(
+                      Icons.add,
+                      color: Color(0xff435334),
+                      size: 40,
+                    ),
                   ),
                 ),
               ],
@@ -165,17 +170,16 @@ class _CadastroCardapioState extends State<CadastroCardapio> {
                 borderRadius: BorderRadius.circular(17),
               ),
               child: Column(
-                children: [
+                children: <Widget>[
                   Container(
                     margin: const EdgeInsets.only(top: 15),
                     child: const Text(
                       'Opções de Café',
                       textAlign: TextAlign.left,
                       style: TextStyle(
-                        fontSize: 17,
-                        color: Color(0xff435334),
-                        fontWeight: FontWeight.w500
-                      ),
+                          fontSize: 17,
+                          color: Color(0xff435334),
+                          fontWeight: FontWeight.w500),
                     ),
                   ),
                 ],
@@ -201,10 +205,9 @@ class _CadastroCardapioState extends State<CadastroCardapio> {
                       'Opções de Almoço',
                       textAlign: TextAlign.left,
                       style: TextStyle(
-                        fontSize: 17,
-                        color: Color(0xff435334),
-                        fontWeight: FontWeight.w500
-                      ),
+                          fontSize: 17,
+                          color: Color(0xff435334),
+                          fontWeight: FontWeight.w500),
                     ),
                   ),
                 ],
@@ -230,10 +233,9 @@ class _CadastroCardapioState extends State<CadastroCardapio> {
                       'Opções de Janta',
                       textAlign: TextAlign.left,
                       style: TextStyle(
-                        fontSize: 17,
-                        color: Color(0xff435334),
-                        fontWeight: FontWeight.w500
-                      ),
+                          fontSize: 17,
+                          color: Color(0xff435334),
+                          fontWeight: FontWeight.w500),
                     ),
                   ),
                 ],
