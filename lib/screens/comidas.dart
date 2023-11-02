@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:nutricao/items/checkbox_state.dart';
 
 class ComidasPage extends StatefulWidget {
   const ComidasPage({super.key});
@@ -14,6 +15,20 @@ class _ComidasPage extends State<ComidasPage> {
     'https://images.unsplash.com/photo-1607305387299-a3d9611cd469?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&q=80&w=1965&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     'https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  ];
+
+  final menus = [
+    CheckBoxState(title: 'Menu Saudável'),
+    CheckBoxState(title: 'Menu Naturel'),
+    CheckBoxState(title: 'Menu Matutino'),
+  ];
+
+  final categoria = [
+    CheckBoxState(title: 'Bebida'),
+    CheckBoxState(title: 'Proteína'),
+    CheckBoxState(title: 'Carboidrato'),
+    CheckBoxState(title: 'Grão'),
+    CheckBoxState(title: 'Fruta'),
   ];
 
   @override
@@ -201,9 +216,9 @@ class _ComidasPage extends State<ComidasPage> {
                       ),
                       boxShadow: [
                         BoxShadow(
-                            spreadRadius: 2,
-                            blurRadius: 10,
-                            color: const Color(0xff9EB384).withOpacity(0.2))
+                            spreadRadius: 5,
+                            blurRadius: 20,
+                            color: const Color(0xff9EB384).withOpacity(0.3))
                       ],
                       shape: BoxShape.circle,
                     ),
@@ -240,19 +255,19 @@ class _ComidasPage extends State<ComidasPage> {
 
             Container(
               margin: const EdgeInsets.only(
-                  right: 30, left: 30, bottom: 10, top: 20),
+                  right: 40, left: 40, bottom: 10, top: 20),
               child: Center(
                 child: TextFormField(
                   keyboardType: TextInputType.text,
                   decoration: InputDecoration(
-                    hintText: "Insira o nome do item",
+                    hintText: "Insira o nome",
                     hintStyle: const TextStyle(
                       fontSize: 15,
                       fontStyle: FontStyle.normal,
                       color: Color.fromARGB(171, 67, 83, 52),
                     ),
-                    contentPadding:
-                        const EdgeInsets.symmetric(vertical: 5, horizontal: 92),
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 5, horizontal: 105),
                     filled: true,
                     fillColor: const Color(0xFFCEDEBD),
                     enabledBorder: OutlineInputBorder(
@@ -270,14 +285,14 @@ class _ComidasPage extends State<ComidasPage> {
                 child: TextFormField(
                   keyboardType: TextInputType.text,
                   decoration: InputDecoration(
-                    hintText: "Insira o nome do item",
+                    hintText: "Categoria",
                     hintStyle: const TextStyle(
                       fontSize: 15,
                       fontStyle: FontStyle.normal,
                       color: Color.fromARGB(171, 67, 83, 52),
                     ),
                     contentPadding: const EdgeInsets.symmetric(
-                        vertical: 5, horizontal: 112),
+                        vertical: 5, horizontal: 150),
                     filled: true,
                     fillColor: const Color(0xFFCEDEBD),
                     enabledBorder: OutlineInputBorder(
@@ -290,7 +305,35 @@ class _ComidasPage extends State<ComidasPage> {
             ),
 
             const SizedBox(
-              height: 35,
+              height: 25,
+            ),
+
+            const Text(
+              'MENU',
+              style: TextStyle(
+                  fontSize: 18,
+                  color: Color(0xFF435334),
+                  fontWeight: FontWeight.bold),
+            ),
+
+            Column(
+              children: [...menus.map(buildSingleCheckBox).toList()],
+            ),
+
+            const SizedBox(
+              height: 25,
+            ),
+
+            const Text(
+              'CATEGORIA',
+              style: TextStyle(
+                  fontSize: 18,
+                  color: Color(0xFF435334),
+                  fontWeight: FontWeight.bold),
+            ),
+
+            Column(
+              children: [...categoria.map(buildSingleCheckBox).toList()],
             )
           ],
         ),
@@ -308,4 +351,14 @@ class _ComidasPage extends State<ComidasPage> {
           ),
         ),
       );
+
+  Widget buildSingleCheckBox(CheckBoxState checkbox) => CheckboxListTile(
+      activeColor: const Color(0xFF435334),
+      controlAffinity: ListTileControlAffinity.leading,
+      value: checkbox.value,
+      title: Text(
+        checkbox.title,
+        style: const TextStyle(color: Color(0xFF435334)),
+      ),
+      onChanged: (value) => setState(() => checkbox.value = value!));
 }

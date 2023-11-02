@@ -149,6 +149,28 @@ class LoginPage extends StatelessWidget {
                   ),
                 ],
               ),
+              Padding(
+                padding: const EdgeInsets.only(top: 665, left: 75),
+                child: Container(
+                  alignment: Alignment.center,
+                  width: 250,
+                  height: 1,
+                  color: const Color.fromARGB(198, 67, 83, 52),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, '/profile');
+                },
+                child: const Padding(
+                  padding: EdgeInsets.only(top: 675, left: 155),
+                  child: Text(
+                    'Cadastre-se',
+                    style: TextStyle(
+                        height: 3, color: Color(0xFF435334), fontSize: 15),
+                  ),
+                ),
+              )
             ],
           ),
         )
