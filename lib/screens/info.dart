@@ -42,7 +42,56 @@ class _InfoPage extends State<InfoPage> {
       ),
       body: const Center(
         child: Column(
-          children: [],
+          children: [
+            Positioned(
+              child: Image(
+                image: AssetImage('assets/logo.png'),
+                height: 300,
+                width: 300,
+              ),
+            ),
+            Text(
+              'Desenvolvido por:',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+                color: Color(0xFF435334),
+                letterSpacing: 2,
+                height: 2,
+              ),
+            ),
+            SizedBox(
+              height: 3,
+            ),
+            Text(
+              'Meire Viviane dos Santos',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+            Text(
+              'Michaelle Maria Silva de Oliveira',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              height: 50,
+            ),
+            Text(
+              'Framework utilizado:',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+                color: Color(0xFF435334),
+                letterSpacing: 2,
+                height: 2,
+              ),
+            ),
+            SizedBox(
+              height: 3,
+            ),
+            Text(
+              'Flutter',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+          ],
         ),
       ),
     );

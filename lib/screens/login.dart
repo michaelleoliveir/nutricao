@@ -22,10 +22,12 @@ class LoginPage extends StatelessWidget {
           body: Stack(
             children: [
               const Positioned(
-                top: 110, // Ajuste a posição vertical
-                left: 50, // Ajuste a posição horizontal
+                top: 70, // Ajuste a posição vertical
+                left: 89, // Ajuste a posição horizontal
                 child: Image(
                  image: AssetImage('assets/logo.png'),
+                 height: 230,
+                 width: 230,
                 ),
               ),
               Center(
