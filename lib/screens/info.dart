@@ -42,11 +42,7 @@ class _InfoPage extends State<InfoPage> {
       ),
       body: const Center(
         child: Column(
-          children: [
-            Image(
-              image: AssetImage('assets/logo.png')
-            )
-          ],
+          children: [],
         ),
       ),
     );
