@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -23,12 +22,10 @@ class LoginPage extends StatelessWidget {
           body: Stack(
             children: [
               const Positioned(
-                top: 120, // Ajuste a posição vertical
-                left: 122, // Ajuste a posição horizontal
-                child: Icon(
-                  CupertinoIcons.person,
-                  size: 160,
-                  color: Color(0xFF435334),
+                top: 110, // Ajuste a posição vertical
+                left: 50, // Ajuste a posição horizontal
+                child: Image(
+                 image: AssetImage('assets/logo.png'),
                 ),
               ),
               Center(
