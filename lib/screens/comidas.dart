@@ -388,7 +388,7 @@ class _ComidasPage extends State<ComidasPage> {
                 Navigator.pushNamed(context, '/info');
               },
               child: Container(
-                padding: const EdgeInsets.only(left: 145),
+                padding: const EdgeInsets.only(left: 127),
                 child: const Row(
                   children: [
                     Icon(
@@ -396,7 +396,7 @@ class _ComidasPage extends State<ComidasPage> {
                       color: Color(0xFF435334),
                     ),
                     Text(
-                      ' Sobre o app',
+                      ' Sobre o aplicativo',
                       style: TextStyle(color: Color(0xFF435334)),
                     ),
                   ],

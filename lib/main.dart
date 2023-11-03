@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nutricao/screens/cardapio.dart';
 import 'screens/login.dart';
 import 'screens/main.dart';
 import 'screens/search.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
         '/profile': (context) => const ProfilePage(),
         '/comidas' : (context) => const ComidasPage(),
         '/info' : (context) => const InfoPage(),
+        '/cardapio' : (context) => const CardapioPage()
       },
     );
   }

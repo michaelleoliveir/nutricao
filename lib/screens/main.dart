@@ -188,214 +188,232 @@ class _MainPageState extends State<MainPage> {
                 const SizedBox(
                   height: 20,
                 ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(7, 0, 0, 7),
-                  padding: const EdgeInsets.fromLTRB(16, 25, 25, 16),
-                  width: 365,
-                  height: 140,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffcedebd),
-                    borderRadius: BorderRadius.circular(17),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.fromLTRB(3, 0, 0, 3),
-                        child: const Text(
-                          'Cardápio Naturel',
-                          style: TextStyle(
-                            fontSize: 29,
-                            fontWeight: FontWeight.w600,
-                            height: 1.5,
-                            color: Color(0xff435334),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/cardapio');
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.fromLTRB(7, 0, 0, 7),
+                    padding: const EdgeInsets.fromLTRB(16, 25, 25, 16),
+                    width: 365,
+                    height: 140,
+                    decoration: BoxDecoration(
+                      color: const Color(0xffcedebd),
+                      borderRadius: BorderRadius.circular(17),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.fromLTRB(3, 0, 0, 3),
+                          child: const Text(
+                            'Cardápio Naturel',
+                            style: TextStyle(
+                              fontSize: 29,
+                              fontWeight: FontWeight.w600,
+                              height: 1.5,
+                              color: Color(0xff435334),
+                            ),
                           ),
                         ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.fromLTRB(1, 0, 205, 0),
-                        width: double.infinity,
-                        height: 15,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                              padding: const EdgeInsets.fromLTRB(1, 1, 3, 1.42),
-                              height: double.infinity,
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    margin:
-                                        const EdgeInsets.fromLTRB(0, 10, 15, 0),
-                                    width: 9.59,
-                                    height: 9.58,
-                                    child: const Icon(
-                                      CupertinoIcons.tag,
-                                      size: 32,
-                                      color: Color(0xFF435334),
+                        Container(
+                          margin: const EdgeInsets.fromLTRB(1, 0, 205, 0),
+                          width: double.infinity,
+                          height: 15,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                padding:
+                                    const EdgeInsets.fromLTRB(1, 1, 3, 1.42),
+                                height: double.infinity,
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      margin: const EdgeInsets.fromLTRB(
+                                          0, 10, 15, 0),
+                                      width: 9.59,
+                                      height: 9.58,
+                                      child: const Icon(
+                                        CupertinoIcons.tag,
+                                        size: 32,
+                                        color: Color(0xFF435334),
+                                      ),
                                     ),
-                                  ),
-                                  Container(
-                                    margin: const EdgeInsets.fromLTRB(
-                                        60, 10, 15, 0),
-                                    width: 9.59,
-                                    height: 9.58,
-                                    child: const Icon(
-                                      CupertinoIcons.tag,
-                                      size: 32,
-                                      color: Color(0xFF435334),
+                                    Container(
+                                      margin: const EdgeInsets.fromLTRB(
+                                          60, 10, 15, 0),
+                                      width: 9.59,
+                                      height: 9.58,
+                                      child: const Icon(
+                                        CupertinoIcons.tag,
+                                        size: 32,
+                                        color: Color(0xFF435334),
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(7, 0, 0, 7),
-                  padding: const EdgeInsets.fromLTRB(16, 25, 25, 16),
-                  width: 365,
-                  height: 140,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffcedebd),
-                    borderRadius: BorderRadius.circular(17),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.fromLTRB(3, 0, 0, 3),
-                        child: const Text(
-                          'Cardápio Carboidrato',
-                          style: TextStyle(
-                            fontSize: 29,
-                            fontWeight: FontWeight.w600,
-                            height: 1.5,
-                            color: Color(0xff435334),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/cardapio');
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.fromLTRB(7, 0, 0, 7),
+                    padding: const EdgeInsets.fromLTRB(16, 25, 25, 16),
+                    width: 365,
+                    height: 140,
+                    decoration: BoxDecoration(
+                      color: const Color(0xffcedebd),
+                      borderRadius: BorderRadius.circular(17),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.fromLTRB(3, 0, 0, 3),
+                          child: const Text(
+                            'Cardápio Carboidrato',
+                            style: TextStyle(
+                              fontSize: 29,
+                              fontWeight: FontWeight.w600,
+                              height: 1.5,
+                              color: Color(0xff435334),
+                            ),
                           ),
                         ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.fromLTRB(1, 0, 205, 0),
-                        width: double.infinity,
-                        height: 15,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                              padding: const EdgeInsets.fromLTRB(1, 1, 3, 1.42),
-                              height: double.infinity,
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    margin:
-                                        const EdgeInsets.fromLTRB(0, 10, 15, 0),
-                                    width: 9.59,
-                                    height: 9.58,
-                                    child: const Icon(
-                                      CupertinoIcons.tag,
-                                      size: 32,
-                                      color: Color(0xFF435334),
+                        Container(
+                          margin: const EdgeInsets.fromLTRB(1, 0, 205, 0),
+                          width: double.infinity,
+                          height: 15,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                padding:
+                                    const EdgeInsets.fromLTRB(1, 1, 3, 1.42),
+                                height: double.infinity,
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      margin: const EdgeInsets.fromLTRB(
+                                          0, 10, 15, 0),
+                                      width: 9.59,
+                                      height: 9.58,
+                                      child: const Icon(
+                                        CupertinoIcons.tag,
+                                        size: 32,
+                                        color: Color(0xFF435334),
+                                      ),
                                     ),
-                                  ),
-                                  Container(
-                                    margin: const EdgeInsets.fromLTRB(
-                                        60, 10, 15, 0),
-                                    width: 9.59,
-                                    height: 9.58,
-                                    child: const Icon(
-                                      CupertinoIcons.tag,
-                                      size: 32,
-                                      color: Color(0xFF435334),
+                                    Container(
+                                      margin: const EdgeInsets.fromLTRB(
+                                          60, 10, 15, 0),
+                                      width: 9.59,
+                                      height: 9.58,
+                                      child: const Icon(
+                                        CupertinoIcons.tag,
+                                        size: 32,
+                                        color: Color(0xFF435334),
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(7, 0, 0, 7),
-                  padding: const EdgeInsets.fromLTRB(16, 25, 25, 16),
-                  width: 365,
-                  height: 140,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffcedebd),
-                    borderRadius: BorderRadius.circular(17),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.fromLTRB(3, 0, 0, 3),
-                        child: const Text(
-                          'Cardápio Italiano',
-                          style: TextStyle(
-                            fontSize: 29,
-                            fontWeight: FontWeight.w600,
-                            height: 1.5,
-                            color: Color(0xff435334),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/cardapio');
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.fromLTRB(7, 0, 0, 7),
+                    padding: const EdgeInsets.fromLTRB(16, 25, 25, 16),
+                    width: 365,
+                    height: 140,
+                    decoration: BoxDecoration(
+                      color: const Color(0xffcedebd),
+                      borderRadius: BorderRadius.circular(17),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.fromLTRB(3, 0, 0, 3),
+                          child: const Text(
+                            'Cardápio Italiano',
+                            style: TextStyle(
+                              fontSize: 29,
+                              fontWeight: FontWeight.w600,
+                              height: 1.5,
+                              color: Color(0xff435334),
+                            ),
                           ),
                         ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.fromLTRB(1, 0, 205, 0),
-                        width: double.infinity,
-                        height: 15,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                              padding: const EdgeInsets.fromLTRB(1, 1, 3, 1.42),
-                              height: double.infinity,
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    margin:
-                                        const EdgeInsets.fromLTRB(0, 10, 15, 0),
-                                    width: 9.59,
-                                    height: 9.58,
-                                    child: const Icon(
-                                      CupertinoIcons.tag,
-                                      size: 32,
-                                      color: Color(0xFF435334),
+                        Container(
+                          margin: const EdgeInsets.fromLTRB(1, 0, 205, 0),
+                          width: double.infinity,
+                          height: 15,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                padding:
+                                    const EdgeInsets.fromLTRB(1, 1, 3, 1.42),
+                                height: double.infinity,
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      margin: const EdgeInsets.fromLTRB(
+                                          0, 10, 15, 0),
+                                      width: 9.59,
+                                      height: 9.58,
+                                      child: const Icon(
+                                        CupertinoIcons.tag,
+                                        size: 32,
+                                        color: Color(0xFF435334),
+                                      ),
                                     ),
-                                  ),
-                                  Container(
-                                    margin: const EdgeInsets.fromLTRB(
-                                        60, 10, 15, 0),
-                                    width: 9.59,
-                                    height: 9.58,
-                                    child: const Icon(
-                                      CupertinoIcons.tag,
-                                      size: 32,
-                                      color: Color(0xFF435334),
+                                    Container(
+                                      margin: const EdgeInsets.fromLTRB(
+                                          60, 10, 15, 0),
+                                      width: 9.59,
+                                      height: 9.58,
+                                      child: const Icon(
+                                        CupertinoIcons.tag,
+                                        size: 32,
+                                        color: Color(0xFF435334),
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
                 const SizedBox(
@@ -430,7 +448,7 @@ class _MainPageState extends State<MainPage> {
                     Navigator.pushNamed(context, '/info');
                   },
                   child: Container(
-                    padding: const EdgeInsets.only(left: 145),
+                    padding: const EdgeInsets.only(left: 127),
                     child: const Row(
                       children: [
                         Icon(
@@ -438,10 +456,8 @@ class _MainPageState extends State<MainPage> {
                           color: Color(0xFF435334),
                         ),
                         Text(
-                          ' Sobre o app',
-                          style: TextStyle(
-                            color: Color(0xFF435334)
-                          ),
+                          ' Sobre o aplicativo',
+                          style: TextStyle(color: Color(0xFF435334)),
                         ),
                       ],
                     ),
