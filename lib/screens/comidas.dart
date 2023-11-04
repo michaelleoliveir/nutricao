@@ -267,7 +267,7 @@ class _ComidasPage extends State<ComidasPage> {
                       color: Color.fromARGB(171, 67, 83, 52),
                     ),
                     contentPadding: const EdgeInsets.symmetric(
-                        vertical: 5, horizontal: 105),
+                        vertical: 5, horizontal: 120),
                     filled: true,
                     fillColor: const Color(0xFFCEDEBD),
                     enabledBorder: OutlineInputBorder(

@@ -196,7 +196,7 @@ class _MainPageState extends State<MainPage> {
                     margin: const EdgeInsets.fromLTRB(7, 0, 0, 7),
                     padding: const EdgeInsets.fromLTRB(16, 25, 25, 16),
                     width: 365,
-                    height: 140,
+                    height: 120,
                     decoration: BoxDecoration(
                       color: const Color(0xffcedebd),
                       borderRadius: BorderRadius.circular(17),
@@ -211,51 +211,9 @@ class _MainPageState extends State<MainPage> {
                             style: TextStyle(
                               fontSize: 29,
                               fontWeight: FontWeight.w600,
-                              height: 1.5,
+                              height: 2.3,
                               color: Color(0xff435334),
                             ),
-                          ),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.fromLTRB(1, 0, 205, 0),
-                          width: double.infinity,
-                          height: 15,
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                padding:
-                                    const EdgeInsets.fromLTRB(1, 1, 3, 1.42),
-                                height: double.infinity,
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      margin: const EdgeInsets.fromLTRB(
-                                          0, 10, 15, 0),
-                                      width: 9.59,
-                                      height: 9.58,
-                                      child: const Icon(
-                                        CupertinoIcons.tag,
-                                        size: 32,
-                                        color: Color(0xFF435334),
-                                      ),
-                                    ),
-                                    Container(
-                                      margin: const EdgeInsets.fromLTRB(
-                                          60, 10, 15, 0),
-                                      width: 9.59,
-                                      height: 9.58,
-                                      child: const Icon(
-                                        CupertinoIcons.tag,
-                                        size: 32,
-                                        color: Color(0xFF435334),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
                           ),
                         ),
                       ],
@@ -273,7 +231,7 @@ class _MainPageState extends State<MainPage> {
                     margin: const EdgeInsets.fromLTRB(7, 0, 0, 7),
                     padding: const EdgeInsets.fromLTRB(16, 25, 25, 16),
                     width: 365,
-                    height: 140,
+                    height: 120,
                     decoration: BoxDecoration(
                       color: const Color(0xffcedebd),
                       borderRadius: BorderRadius.circular(17),
@@ -288,51 +246,9 @@ class _MainPageState extends State<MainPage> {
                             style: TextStyle(
                               fontSize: 29,
                               fontWeight: FontWeight.w600,
-                              height: 1.5,
+                              height: 2.3,
                               color: Color(0xff435334),
                             ),
-                          ),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.fromLTRB(1, 0, 205, 0),
-                          width: double.infinity,
-                          height: 15,
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                padding:
-                                    const EdgeInsets.fromLTRB(1, 1, 3, 1.42),
-                                height: double.infinity,
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      margin: const EdgeInsets.fromLTRB(
-                                          0, 10, 15, 0),
-                                      width: 9.59,
-                                      height: 9.58,
-                                      child: const Icon(
-                                        CupertinoIcons.tag,
-                                        size: 32,
-                                        color: Color(0xFF435334),
-                                      ),
-                                    ),
-                                    Container(
-                                      margin: const EdgeInsets.fromLTRB(
-                                          60, 10, 15, 0),
-                                      width: 9.59,
-                                      height: 9.58,
-                                      child: const Icon(
-                                        CupertinoIcons.tag,
-                                        size: 32,
-                                        color: Color(0xFF435334),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
                           ),
                         ),
                       ],
@@ -350,7 +266,7 @@ class _MainPageState extends State<MainPage> {
                     margin: const EdgeInsets.fromLTRB(7, 0, 0, 7),
                     padding: const EdgeInsets.fromLTRB(16, 25, 25, 16),
                     width: 365,
-                    height: 140,
+                    height: 120,
                     decoration: BoxDecoration(
                       color: const Color(0xffcedebd),
                       borderRadius: BorderRadius.circular(17),
@@ -365,51 +281,9 @@ class _MainPageState extends State<MainPage> {
                             style: TextStyle(
                               fontSize: 29,
                               fontWeight: FontWeight.w600,
-                              height: 1.5,
+                              height: 2.3,
                               color: Color(0xff435334),
                             ),
-                          ),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.fromLTRB(1, 0, 205, 0),
-                          width: double.infinity,
-                          height: 15,
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                padding:
-                                    const EdgeInsets.fromLTRB(1, 1, 3, 1.42),
-                                height: double.infinity,
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      margin: const EdgeInsets.fromLTRB(
-                                          0, 10, 15, 0),
-                                      width: 9.59,
-                                      height: 9.58,
-                                      child: const Icon(
-                                        CupertinoIcons.tag,
-                                        size: 32,
-                                        color: Color(0xFF435334),
-                                      ),
-                                    ),
-                                    Container(
-                                      margin: const EdgeInsets.fromLTRB(
-                                          60, 10, 15, 0),
-                                      width: 9.59,
-                                      height: 9.58,
-                                      child: const Icon(
-                                        CupertinoIcons.tag,
-                                        size: 32,
-                                        color: Color(0xFF435334),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
                           ),
                         ),
                       ],

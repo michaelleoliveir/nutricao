@@ -18,10 +18,12 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: true,
         title: 'Naturel',
         theme: ThemeData(
-          primarySwatch: Colors.blueGrey,
+          scaffoldBackgroundColor: const Color(0xFFFAF1E4),
         ),
-        home: const ProfilePage());
+        home: const ProfilePage(),
+      );
   }
+
 }
 
 class ProfilePage extends StatefulWidget {
