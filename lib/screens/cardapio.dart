@@ -105,21 +105,102 @@ class _CardapioPage extends State<CardapioPage> {
                   color: Color(0xffcedebd),
                   elevation: 0,
                   child: ExpansionTile(
-                    childrenPadding:
-                        EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                    childrenPadding: EdgeInsets.symmetric(vertical: 10),
                     iconColor: Color(0xFF435334),
                     collapsedIconColor: Color(0xFF435334),
                     title: Text(
                       'Cardápio Naturel',
                       style: TextStyle(
                         color: Color(0xFF435334),
-                        fontSize: 25,
+                        fontSize: 28,
                         fontWeight: FontWeight.w600,
                         height: 1.5,
                       ),
                     ),
                     children: [
-                      Text('conteudo'),
+                      Text(
+                        'Opções de Café:',
+                        style: TextStyle(
+                          fontSize: 19,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFF435334),
+                          fontStyle: FontStyle.italic,
+                        ),
+                      ),
+                      Text(
+                        'Café',
+                        style:
+                            TextStyle(color: Color(0xFF435334), fontSize: 17),
+                      ),
+                      Text(
+                        'Fruta',
+                        style:
+                            TextStyle(color: Color(0xFF435334), fontSize: 17),
+                      ),
+                      Text(
+                        'Suco',
+                        style:
+                            TextStyle(color: Color(0xFF435334), fontSize: 17),
+                      ),
+                      Text(
+                        'Pão Integral',
+                        style:
+                            TextStyle(color: Color(0xFF435334), fontSize: 17),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        'Opções de Almoço:',
+                        style: TextStyle(
+                          fontSize: 19,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFF435334),
+                          fontStyle: FontStyle.italic,
+                        ),
+                      ),
+                      Text(
+                        'Carne Vermelha',
+                        style:
+                            TextStyle(color: Color(0xFF435334), fontSize: 17),
+                      ),
+                      Text(
+                        'Arroz',
+                        style:
+                            TextStyle(color: Color(0xFF435334), fontSize: 17),
+                      ),
+                      Text(
+                        'Salada',
+                        style:
+                            TextStyle(color: Color(0xFF435334), fontSize: 17),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        'Opções de Janta:',
+                        style: TextStyle(
+                          fontSize: 19,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFF435334),
+                          fontStyle: FontStyle.italic,
+                        ),
+                      ),
+                      Text(
+                        'Carne Branca',
+                        style:
+                            TextStyle(color: Color(0xFF435334), fontSize: 17),
+                      ),
+                      Text(
+                        'Feijão',
+                        style:
+                            TextStyle(color: Color(0xFF435334), fontSize: 17),
+                      ),
+                      Text(
+                        'Salada',
+                        style:
+                            TextStyle(color: Color(0xFF435334), fontSize: 17),
+                      ),
                     ],
                   ),
                 ),
@@ -144,20 +225,102 @@ class _CardapioPage extends State<CardapioPage> {
                       'Cardápio Carboidrato',
                       style: TextStyle(
                         color: Color(0xFF435334),
-                        fontSize: 25,
+                        fontSize: 27,
                         fontWeight: FontWeight.w600,
                         height: 1.5,
                       ),
                     ),
                     children: [
-                      Text('conteudo'),
+                      Text(
+                        'Opções de Café:',
+                        style: TextStyle(
+                          fontSize: 19,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFF435334),
+                          fontStyle: FontStyle.italic
+                        ),
+                      ),
+                      Text(
+                        'Pão',
+                        style:
+                            TextStyle(color: Color(0xFF435334), fontSize: 17),
+                      ),
+                      Text(
+                        'Panettone',
+                        style:
+                            TextStyle(color: Color(0xFF435334), fontSize: 17),
+                      ),
+                      Text(
+                        'Rosca',
+                        style:
+                            TextStyle(color: Color(0xFF435334), fontSize: 17),
+                      ),
+                      Text(
+                        'Leite',
+                        style:
+                            TextStyle(color: Color(0xFF435334), fontSize: 17),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        'Opções de Almoço:',
+                        style: TextStyle(
+                          fontSize: 19,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFF435334),
+                          fontStyle: FontStyle.italic
+                        ),
+                      ),
+                      Text(
+                        'Macarrão',
+                        style:
+                            TextStyle(color: Color(0xFF435334), fontSize: 17),
+                      ),
+                      Text(
+                        'Arroz',
+                        style:
+                            TextStyle(color: Color(0xFF435334), fontSize: 17),
+                      ),
+                      Text(
+                        'Purê',
+                        style:
+                            TextStyle(color: Color(0xFF435334), fontSize: 17),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        'Opções de Janta:',
+                        style: TextStyle(
+                          fontSize: 19,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFF435334),
+                          fontStyle: FontStyle.italic
+                        ),
+                      ),
+                      Text(
+                        'Pastel',
+                        style:
+                            TextStyle(color: Color(0xFF435334), fontSize: 17),
+                      ),
+                      Text(
+                        'Pizza',
+                        style:
+                            TextStyle(color: Color(0xFF435334), fontSize: 17),
+                      ),
+                      Text(
+                        'Esfiha',
+                        style:
+                            TextStyle(color: Color(0xFF435334), fontSize: 17),
+                      )
                     ],
                   ),
                 ),
               ),
             ),
 
-             Theme(
+            Theme(
               data:
                   Theme.of(context).copyWith(dividerColor: Colors.transparent),
               child: Container(
@@ -175,19 +338,90 @@ class _CardapioPage extends State<CardapioPage> {
                       'Cardápio Italiano',
                       style: TextStyle(
                         color: Color(0xFF435334),
-                        fontSize: 25,
+                        fontSize: 28,
                         fontWeight: FontWeight.w600,
                         height: 1.5,
                       ),
                     ),
                     children: [
-                      Text('conteudo'),
+                      Text(
+                        'Opções de Café:',
+                        style: TextStyle(
+                          fontSize: 19,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFF435334),
+                          fontStyle: FontStyle.italic
+                        ),
+                      ),
+                      Text(
+                        'Salada',
+                        style:
+                            TextStyle(color: Color(0xFF435334), fontSize: 17),
+                      ),
+                      Text(
+                        'Panettone',
+                        style:
+                            TextStyle(color: Color(0xFF435334), fontSize: 17),
+                      ),
+                      Text(
+                        'Pão',
+                        style:
+                            TextStyle(color: Color(0xFF435334), fontSize: 17),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        'Opções de Almoço:',
+                        style: TextStyle(
+                          fontSize: 19,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFF435334),
+                          fontStyle: FontStyle.italic
+                        ),
+                      ),
+                      Text(
+                        'Macarrão',
+                        style:
+                            TextStyle(color: Color(0xFF435334), fontSize: 17),
+                      ),
+                      Text(
+                        'Salada',
+                        style:
+                            TextStyle(color: Color(0xFF435334), fontSize: 17),
+                      ),
+                      Text(
+                        'Vinho',
+                        style:
+                            TextStyle(color: Color(0xFF435334), fontSize: 17),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        'Opções de Janta:',
+                        style: TextStyle(
+                          fontSize: 19,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFF435334),
+                          fontStyle: FontStyle.italic
+                        ),
+                      ),
+                      Text(
+                        'Refrigerante',
+                        style:
+                            TextStyle(color: Color(0xFF435334), fontSize: 17),
+                      ),
+                      Text(
+                        'Pizza',
+                        style:
+                            TextStyle(color: Color(0xFF435334), fontSize: 17),
+                      ),
                     ],
                   ),
                 ),
               ),
             ),
-            
           ],
         ),
       ),

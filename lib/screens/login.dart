@@ -124,18 +124,28 @@ class LoginPage extends StatelessWidget {
                   ),
                 ],
               ),*/
+              Positioned(
+                top: 579,
+                left: 71,
+                child: Container(
+                  alignment: Alignment.center,
+                  width: 250,
+                  height: 1,
+                  color: const Color.fromARGB(212, 129, 136, 119),
+                ),
+              ),
               GestureDetector(
                 onTap: () {
                   Navigator.pushNamed(context, '/profile');
                 },
                 child: const Padding(
-                  padding: EdgeInsets.only(top: 590, left: 135),
+                  padding: EdgeInsets.only(top: 600, left: 135),
                   child: Text(
                     'Cadastre-se',
                     style: TextStyle(
                       height: 2,
                       color: Color(0xFF435334),
-                      fontSize: 23,
+                      fontSize: 20,
                       decoration: TextDecoration.underline,
                       //backgroundColor: Color.fromARGB(230, 175, 211, 182),
                     ),

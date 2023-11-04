@@ -203,7 +203,7 @@ class _HomePageState extends State<ProfilePage> {
                           Navigator.pushNamed(context, '/cadastro');
                         },
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromARGB(255, 152, 177, 128),
+                            backgroundColor: const Color.fromARGB(255, 152, 177, 128),
                             padding: const EdgeInsets.symmetric(horizontal: 20),
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30))),
@@ -256,7 +256,7 @@ class _HomePageState extends State<ProfilePage> {
           : ListView.builder(
               itemCount: _registros.length,
               itemBuilder: (context, index) => Card(
-                color: Color.fromARGB(255, 237, 250, 211),
+                color: const Color.fromARGB(255, 237, 250, 211),
                 margin: const EdgeInsets.all(15),
                 child: ListTile(
                     //faz sumir as listagens
