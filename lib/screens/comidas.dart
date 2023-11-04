@@ -1,6 +1,8 @@
 // main.dart
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 import 'package:nutricao/BD/database_helper.dart';
 
 void main() {
@@ -31,6 +33,18 @@ class ComidasPage extends StatefulWidget {
 }
 
 class _HomePageState extends State<ComidasPage> {
+  final imagePicker = ImagePicker();
+  File? imageFile;
+  pick(ImageSource source) async {
+    final PickedFile = await imagePicker.pickImage(source: source);
+
+    if (PickedFile != null) {
+      setState(() {
+        imageFile = File(PickedFile.path);
+      });
+    }
+  }
+
   // Retorna todos os registros da tabela
   List<Map<String, dynamic>> _registros = [];
 
@@ -86,54 +100,29 @@ class _HomePageState extends State<ComidasPage> {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Center(
-                    child: Stack(
-                      children: [
-                        Container(
-                          width: 120,
-                          height: 100,
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              width: 4,
-                              color: const Color(0xff435334),
-                            ),
-                            boxShadow: [
-                              BoxShadow(
-                                  spreadRadius: 5,
-                                  blurRadius: 20,
-                                  color:
-                                      const Color(0xff9EB384).withOpacity(0.3))
-                            ],
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Icon(
-                            CupertinoIcons.add,
-                            size: 30,
-                            color: Color(0xff435334),
-                          ),
-                        ),
-                        Positioned(
-                          bottom: 0,
-                          right: 0,
-                          child: Container(
-                            height: 50,
-                            width: 50,
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                border: Border.all(
-                                    width: 4, color: const Color(0xFF435334)),
-                                color: const Color(0xFFFAF1E4)),
-                            child: const Icon(
-                              CupertinoIcons.camera,
-                              color: Color(0xFF435334),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CircleAvatar(
+                        radius: 50,
+                        backgroundImage:
+                            imageFile != null ? FileImage(imageFile!) : null,
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          pick(ImageSource.gallery);
+                        },
+                        icon: Icon(Icons.add_photo_alternate_outlined),
+                      ),
+                    ],
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 5,
                   ),
                   const Text(
                     'ALIMENTO',
@@ -164,7 +153,7 @@ class _HomePageState extends State<ComidasPage> {
                     ),
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 5,
                   ),
                   const Text(
                     'CATEGORIA',
@@ -195,7 +184,7 @@ class _HomePageState extends State<ComidasPage> {
                     ),
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 5,
                   ),
                   const Text(
                     'TIPO',

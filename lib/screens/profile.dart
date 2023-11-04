@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:nutricao/BD/database_helper.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 //import 'database_helper.dart';
 
 void main() {
@@ -14,16 +16,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        // Remove the debug banner
-        debugShowCheckedModeBanner: true,
-        title: 'Naturel',
-        theme: ThemeData(
-          scaffoldBackgroundColor: const Color(0xFFFAF1E4),
-        ),
-        home: const ProfilePage(),
-      );
+      // Remove the debug banner
+      debugShowCheckedModeBanner: true,
+      title: 'Naturel',
+      theme: ThemeData(
+        scaffoldBackgroundColor: const Color(0xFFFAF1E4),
+      ),
+      home: const ProfilePage(),
+    );
   }
-
 }
 
 class ProfilePage extends StatefulWidget {
@@ -34,6 +35,18 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<ProfilePage> {
+  final imagePicker = ImagePicker();
+  File? imageFile;
+  pick(ImageSource source) async {
+    final PickedFile = await imagePicker.pickImage(source: source);
+
+    if (PickedFile != null) {
+      setState(() {
+        imageFile = File(PickedFile.path);
+      });
+    }
+  }
+
   // Retorna todos os registros da tabela
   List<Map<String, dynamic>> _registros = [];
 
@@ -91,51 +104,26 @@ class _HomePageState extends State<ProfilePage> {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Center(
-                    child: Stack(
-                      children: [
-                        Container(
-                          width: 100,
-                          height: 100,
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              width: 4,
-                              color: const Color(0xff435334),
-                            ),
-                            boxShadow: [
-                              BoxShadow(
-                                  spreadRadius: 2,
-                                  blurRadius: 10,
-                                  color:
-                                      const Color(0xff9EB384).withOpacity(0.2))
-                            ],
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Icon(
-                            CupertinoIcons.add,
-                            size: 30,
-                            color: Color(0xff435334),
-                          ),
-                        ),
-                        Positioned(
-                          bottom: 0,
-                          right: 0,
-                          child: Container(
-                            height: 50,
-                            width: 50,
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                border: Border.all(
-                                    width: 4, color: const Color(0xFF435334)),
-                                color: const Color(0xFFFAF1E4)),
-                            child: const Icon(
-                              CupertinoIcons.camera,
-                              color: Color(0xFF435334),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CircleAvatar(
+                        radius: 50,
+                        backgroundImage:
+                            imageFile != null ? FileImage(imageFile!) : null,
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          pick(ImageSource.gallery);
+                        },
+                        icon: Icon(Icons.add_photo_alternate_outlined),
+                      ),
+                    ],
                   ),
                   const SizedBox(
                     height: 30,
@@ -202,10 +190,11 @@ class _HomePageState extends State<ProfilePage> {
 
                           // Fecha o modal de inserção/alteração
                           Navigator.of(context).pop();
-                          Navigator.pushNamed(context, '/cadastro');
+                          Navigator.pushNamed(context, '/main');
                         },
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color.fromARGB(255, 152, 177, 128),
+                            backgroundColor:
+                                const Color.fromARGB(255, 152, 177, 128),
                             padding: const EdgeInsets.symmetric(horizontal: 20),
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30))),

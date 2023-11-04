@@ -100,7 +100,7 @@ class _MainPageState extends State<MainPage> {
                 Container(
                   margin: const EdgeInsets.only(bottom: 2),
                   child: const Text(
-                    'Olá, Maria!',
+                    'Olá!',
                     style: TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.w400,

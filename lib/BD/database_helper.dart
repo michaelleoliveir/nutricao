@@ -103,6 +103,8 @@ class Database {
   }
 
   // Retorna um único registro através de um ID
+
+  // Retorna um único registro através de um ID
   static Future<List<Map<String, dynamic>>> retornaRegistroUsu(int id) async {
     final database = await Database.database();
     return database.query('usuario',
