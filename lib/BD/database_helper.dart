@@ -185,7 +185,7 @@ class Database {
   }
 
 // Remove um registro
-  static Future<void> removeRegistroIiten(int id) async {
+  static Future<void> removeRegistroIten(int id) async {
     final database = await Database.database();
     try {
       await database.delete("itens", where: "id = ?", whereArgs: [id]);
