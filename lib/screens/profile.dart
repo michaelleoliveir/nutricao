@@ -1,200 +1,289 @@
-import 'package:flutter/cupertino.dart';
+//main.dart
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:nutricao/BD/database_helper.dart';
+//import 'database_helper.dart';
 
-class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key});
-
-  @override
-  State<ProfilePage> createState() => _ProfilePage();
+void main() {
+  runApp(const MyApp());
 }
 
-class _ProfilePage extends State<ProfilePage> {
-  bool isObscurePassword = true;
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        // Remove the debug banner
+        debugShowCheckedModeBanner: true,
+        title: 'Naturel',
+        theme: ThemeData(
+          primarySwatch: Colors.blueGrey,
+        ),
+        home: const ProfilePage());
+  }
+}
+
+class ProfilePage extends StatefulWidget {
+  const ProfilePage({Key? key}) : super(key: key);
+
+  @override
+  State<ProfilePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<ProfilePage> {
+  // Retorna todos os registros da tabela
+  List<Map<String, dynamic>> _registros = [];
+
+  // Aparece enquanto os dados não são carregados
+  bool _isLoading = true;
+
+  //Essa função retorna todos os registros da tabela
+  void _exibeTodosRegistrosUsu() async {
+    final data = await Database.exibeTodosRegistrosUsu();
+    setState(() {
+      _registros = data;
+      _isLoading = false;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    //Atualiza a lista de registros quando o aplicativo é iniciado
+    _exibeTodosRegistrosUsu();
+  }
+
+  final TextEditingController _nomeController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _senhaController = TextEditingController();
+  final TextEditingController _datanasciController = TextEditingController();
+
+  // Esta função será acionada quando o botão for pressionado
+  // Também será acionado quando um item for inserido, atualizado ou removido
+  void _showForm(int? id) async {
+    if (id != null) {
+      // id == null -> Criando um novo item
+      // id != null -> Atualizando um item existente
+      final registroExistente =
+          _registros.firstWhere((element) => element['id'] == id);
+      _nomeController.text = registroExistente['nome'];
+      _emailController.text = registroExistente['email'];
+      _senhaController.text = registroExistente['senha'];
+      _datanasciController.text = registroExistente['datanasci'];
+    }
+
+    showModalBottomSheet(
+        context: context,
+        elevation: 5,
+        isScrollControlled: true,
+        builder: (_) => Container(
+              padding: EdgeInsets.only(
+                top: 15,
+                left: 15,
+                right: 15,
+                // Isso impedirá que o teclado programável cubra os campos de texto
+                bottom: MediaQuery.of(context).viewInsets.bottom + 10,
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Center(
+                    child: Stack(
+                      children: [
+                        Container(
+                          width: 100,
+                          height: 100,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              width: 4,
+                              color: const Color(0xff435334),
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                  spreadRadius: 2,
+                                  blurRadius: 10,
+                                  color:
+                                      const Color(0xff9EB384).withOpacity(0.2))
+                            ],
+                            shape: BoxShape.circle,
+                          ),
+                          child: const Icon(
+                            CupertinoIcons.add,
+                            size: 30,
+                            color: Color(0xff435334),
+                          ),
+                        ),
+                        Positioned(
+                          bottom: 0,
+                          right: 0,
+                          child: Container(
+                            height: 50,
+                            width: 50,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                    width: 4, color: const Color(0xFF435334)),
+                                color: const Color(0xFFFAF1E4)),
+                            child: const Icon(
+                              CupertinoIcons.camera,
+                              color: Color(0xFF435334),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  TextField(
+                    controller: _nomeController,
+                    decoration: const InputDecoration(labelText: 'Nome'),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextField(
+                    controller: _emailController,
+                    decoration: const InputDecoration(labelText: 'Email'),
+                  ),
+                  TextField(
+                    controller: _senhaController,
+                    decoration: const InputDecoration(labelText: 'Senha'),
+                    obscureText: true,
+                  ),
+                  TextField(
+                    controller: _datanasciController,
+                    decoration:
+                        const InputDecoration(labelText: 'Data Nascimento'),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      OutlinedButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/profile');
+                        },
+                        style: OutlinedButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(horizontal: 30),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20))),
+                        child: const Text(
+                          "CANCELAR",
+                          style: TextStyle(
+                              //fontSize: 15,
+                              letterSpacing: 1,
+                              color: Color(0xFF435334)),
+                        ),
+                      ),
+                      ElevatedButton(
+                        onPressed: () async {
+                          // Salva o registro
+                          if (id == null) {
+                            await _insereUsuario();
+                          }
+
+                          if (id != null) {
+                            await _atualizaRegistroUsu(id);
+                          }
+
+                          // Limpa os campos
+                          _nomeController.text = '';
+                          _emailController.text = '';
+                          _senhaController.text = '';
+                          _datanasciController.text = '';
+
+                          // Fecha o modal de inserção/alteração
+                          Navigator.of(context).pop();
+                          Navigator.pushNamed(context, '/cadastro');
+                        },
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Color.fromARGB(255, 152, 177, 128),
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30))),
+                        child: Text(id == null ? 'Novo registro' : 'Atualizar'),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ));
+  }
+
+  // Insere um novo registro
+  Future<void> _insereUsuario() async {
+    await Database.insereUsuario(_nomeController.text, _emailController.text,
+        _senhaController.text, _datanasciController.text);
+    _exibeTodosRegistrosUsu();
+  }
+
+  // Atualiza um registro
+  Future<void> _atualizaRegistroUsu(int id) async {
+    await Database.atualizaRegistroUsu(
+        id,
+        _nomeController.text,
+        _emailController.text,
+        _senhaController.text,
+        _datanasciController.text);
+    _exibeTodosRegistrosUsu();
+  }
+
+  // Remove um registro
+  void _removeRegistroUsu(int id) async {
+    await Database.removeRegistroUsu(id);
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+      content: Text('Registro removido com sucesso!'),
+    ));
+    _exibeTodosRegistrosUsu();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFAF1E4),
       appBar: AppBar(
-        toolbarHeight: 75,
-        elevation: 9,
-        shadowColor: const Color.fromARGB(255, 230, 221, 209),
-        automaticallyImplyLeading: true,
-        title: const Text(
-          'Naturel',
-          style: TextStyle(color: Color(0xFF435334)),
-        ),
-        backgroundColor: const Color(0xFFFAF1E4),
-        actions: <Widget>[
-          GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(context, '/home');
-            },
-            child: const IconButton(
-              onPressed: null,
-              icon: Icon(
-                Icons.exit_to_app,
-                color: Color(0xFF435334),
-                size: 35,
+        title: const Text('Login'),
+      ),
+      body: _isLoading
+          ? const Center(
+              //child: CircularProgressIndicator(),
+              )
+          : ListView.builder(
+              itemCount: _registros.length,
+              itemBuilder: (context, index) => Card(
+                color: Color.fromARGB(255, 237, 250, 211),
+                margin: const EdgeInsets.all(15),
+                child: ListTile(
+                    //faz sumir as listagens
+                    title: Text(_registros[index]['nome']),
+                    subtitle: Text(_registros[index]['email']),
+                    trailing: SizedBox(
+                      width: 100,
+                      child: Row(
+                        children: [
+                          IconButton(
+                            icon: const Icon(Icons.edit),
+                            onPressed: () => _showForm(_registros[index]['id']),
+                          ),
+                          IconButton(
+                            icon: const Icon(Icons.delete),
+                            onPressed: () =>
+                                _removeRegistroUsu(_registros[index]['id']),
+                          ),
+                        ],
+                      ),
+                    )),
               ),
             ),
-          ),
-        ],
-      ),
-      body: Container(
-        padding: const EdgeInsets.only(left: 15, top: 50, right: 15),
-        child: GestureDetector(
-          onTap: () {
-            FocusScope.of(context).unfocus();
-          },
-          child: ListView(
-            children: [
-              Center(
-                child: Stack(
-                  children: [
-                    Container(
-                      width: 130,
-                      height: 130,
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          width: 4,
-                          color: const Color(0xff435334),
-                        ),
-                        boxShadow: [
-                          BoxShadow(
-                              spreadRadius: 2,
-                              blurRadius: 10,
-                              color: const Color(0xff9EB384).withOpacity(0.2))
-                        ],
-                        shape: BoxShape.circle,
-                      ),
-                      child: const Icon(
-                        CupertinoIcons.add,
-                        size: 30,
-                        color: Color(0xff435334),
-                      ),
-                    ),
-                    Positioned(
-                      bottom: 0,
-                      right: 0,
-                      child: Container(
-                        height: 50,
-                        width: 50,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            border: Border.all(
-                                width: 4, color: const Color(0xFF435334)),
-                            color: const Color(0xFFFAF1E4)),
-                        child: const Icon(
-                          CupertinoIcons.camera,
-                          color: Color(0xFF435334),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              buildTextField("Nome", "Digite seu nome completo", false),
-              buildTextField("Email", "Insira um email válido", false),
-              buildTextField("Senha", "Insira sua senha", true),
-              buildTextField(
-                  "Data Nascimento", "Insira sua data de nascimento", false),
-              const SizedBox(height: 30),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  OutlinedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/cadastro');
-                    },
-                    style: OutlinedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(horizontal: 40),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20))),
-                    child: const Text(
-                      "CANCELAR",
-                      style: TextStyle(
-                          fontSize: 15,
-                          letterSpacing: 2,
-                          color: Color(0xFF435334)),
-                    ),
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/main');
-                    },
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF435334),
-                        padding: const EdgeInsets.symmetric(horizontal: 50),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20))),
-                    child: const Text(
-                      'SALVAR',
-                      style: TextStyle(
-                        fontSize: 15,
-                        letterSpacing: 2,
-                        color: Color(0xFFFAF1E4),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-              const SizedBox(
-                height: 35,
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, '/info');
-                },
-                child: Container(
-                  padding: const EdgeInsets.only(left: 130),
-                  child: const Row(
-                    children: [
-                      Icon(
-                        CupertinoIcons.info,
-                        color: Color(0xFF435334),
-                      ),
-                      Text(
-                        ' Sobre o app',
-                        style: TextStyle(color: Color(0xFF435334)),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget buildTextField(
-      String labelText, String placeholder, bool isPasswordTextField) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 30),
-      child: TextField(
-        obscureText: isPasswordTextField ? isObscurePassword : false,
-        decoration: InputDecoration(
-            suffixIcon: isPasswordTextField
-                ? IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.remove_red_eye,
-                      color: Colors.grey,
-                    ))
-                : null,
-            contentPadding: const EdgeInsets.only(bottom: 5),
-            labelText: labelText,
-            floatingLabelBehavior: FloatingLabelBehavior.always,
-            hintText: placeholder,
-            hintStyle: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-                color: Color.fromARGB(255, 120, 130, 110))),
+      floatingActionButton: FloatingActionButton(
+        child: const //Text("Cadastro"),
+            Icon(Icons.person_add),
+        onPressed: () => _showForm(null),
       ),
     );
   }

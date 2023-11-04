@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+//import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -25,9 +25,9 @@ class LoginPage extends StatelessWidget {
                 top: 70, // Ajuste a posição vertical
                 left: 89, // Ajuste a posição horizontal
                 child: Image(
-                 image: AssetImage('assets/logo.png'),
-                 height: 230,
-                 width: 230,
+                  image: AssetImage('assets/logo.png'),
+                  height: 230,
+                  width: 230,
                 ),
               ),
               Center(
@@ -107,38 +107,14 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
               ),
-              const Row(
+/*              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
                     padding: EdgeInsets.only(top: 600),
                     child: IconButton(
                       onPressed: null,
-                      icon: Icon(Icons.facebook),
-                      style: ButtonStyle(
-                          iconSize: MaterialStatePropertyAll(40),
-                          iconColor:
-                              MaterialStatePropertyAll(Color(0xFF435334)),
-                          alignment: Alignment.center),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 600),
-                    child: IconButton(
-                      onPressed: null,
-                      icon: Icon(Icons.email),
-                      style: ButtonStyle(
-                          iconSize: MaterialStatePropertyAll(40),
-                          iconColor:
-                              MaterialStatePropertyAll(Color(0xFF435334)),
-                          alignment: Alignment.center),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 600),
-                    child: IconButton(
-                      onPressed: null,
-                      icon: FaIcon(FontAwesomeIcons.google),
+                      icon: FaIcon(FontAwesomeIcons.userPlus),
                       style: ButtonStyle(
                           iconSize: MaterialStatePropertyAll(30),
                           iconColor:
@@ -147,26 +123,22 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                 ],
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 665, left: 75),
-                child: Container(
-                  alignment: Alignment.center,
-                  width: 250,
-                  height: 1,
-                  color: const Color.fromARGB(198, 67, 83, 52),
-                ),
-              ),
+              ),*/
               GestureDetector(
                 onTap: () {
                   Navigator.pushNamed(context, '/profile');
                 },
                 child: const Padding(
-                  padding: EdgeInsets.only(top: 675, left: 155),
+                  padding: EdgeInsets.only(top: 590, left: 135),
                   child: Text(
                     'Cadastre-se',
                     style: TextStyle(
-                        height: 3, color: Color(0xFF435334), fontSize: 15),
+                      height: 2,
+                      color: Color(0xFF435334),
+                      fontSize: 23,
+                      decoration: TextDecoration.underline,
+                      //backgroundColor: Color.fromARGB(230, 175, 211, 182),
+                    ),
                   ),
                 ),
               )

@@ -7,6 +7,7 @@ import 'screens/cadastro_cardapio.dart';
 import 'screens/profile.dart';
 import 'screens/comidas.dart';
 import 'screens/info.dart';
+//import 'BD/database_helper.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,9 +32,9 @@ class MyApp extends StatelessWidget {
         '/home': (context) => const LoginPage(),
         '/cadastro': (context) => const CadastroCardapio(),
         '/profile': (context) => const ProfilePage(),
-        '/comidas' : (context) => const ComidasPage(),
-        '/info' : (context) => const InfoPage(),
-        '/cardapio' : (context) => const CardapioPage()
+        '/comidas': (context) => const ComidasPage(),
+        '/info': (context) => const InfoPage(),
+        '/cardapio': (context) => const CardapioPage()
       },
     );
   }
