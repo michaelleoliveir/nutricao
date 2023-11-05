@@ -5,7 +5,7 @@ class CardapioPage extends StatefulWidget {
   const CardapioPage({super.key});
 
   compartilhamentoMenu() {
-    SocialShare.shareOptions("Confira o menu Naturel agora");
+    SocialShare.shareOptions("Confira o meu menu na Naturel agora");
   }
 
   @override

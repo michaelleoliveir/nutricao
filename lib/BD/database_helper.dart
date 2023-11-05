@@ -31,6 +31,11 @@ class Database {
         createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
       )
       """);
+    await database.execute("""CREATE TABLE imagens(
+        id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+        foto TEXT
+      )
+      """);
   }
 
   static Future<sql.Database> database() async {
