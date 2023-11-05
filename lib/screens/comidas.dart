@@ -1,6 +1,6 @@
 // main.dart
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
+//import 'package:flutter/cupertino.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'package:nutricao/BD/database_helper.dart';
@@ -36,11 +36,11 @@ class _HomePageState extends State<ComidasPage> {
   final imagePicker = ImagePicker();
   File? imageFile;
   pick(ImageSource source) async {
-    final PickedFile = await imagePicker.pickImage(source: source);
+    final pickedFile = await imagePicker.pickImage(source: source);
 
-    if (PickedFile != null) {
+    if (pickedFile != null) {
       setState(() {
-        imageFile = File(PickedFile.path);
+        imageFile = File(pickedFile.path);
       });
     }
   }
