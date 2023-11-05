@@ -20,7 +20,7 @@ class _SearchScreenState extends State<SearchScreen> {
     });
 
     if (searchTerm.isNotEmpty) {
-      final results = await Database.consultaUsuariosPorNome(searchTerm);
+      final results = await Database.consultaItensPorNome(searchTerm);
       setState(() {
         searchResults = results;
       });
@@ -94,13 +94,14 @@ class _SearchScreenState extends State<SearchScreen> {
             // Resultados da pesquisa
             if (searchResults.isNotEmpty)
               Container(
-                height: 200,
+                height: 250,
                 child: ListView.builder(
                   itemCount: searchResults.length,
                   itemBuilder: (context, index) {
                     final user = searchResults[index];
                     return ListTile(
                       title: Text(user['nome']),
+                      subtitle: Text(user['categoria']),
                       // Adicione outros elementos relevantes do usuário aqui
                     );
                   },
@@ -108,8 +109,9 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
 
             // Previous Searches
-            SingleChildScrollView(
+            /*  SingleChildScrollView(
               child: Container(
+                //height: 200,
                 color: const Color.fromARGB(225, 239, 230, 216),
                 child: Expanded(
                   child: ListView.builder(
@@ -120,13 +122,13 @@ class _SearchScreenState extends State<SearchScreen> {
                   ),
                 ),
               ),
-            ),
+            ),*/
             const SizedBox(
-              height: 10,
+              height: 5,
             ),
 
             // Search Suggestions
-            Container(
+            /*Container(
                 width: double.infinity,
                 color: const Color(0xFFFAF1E4),
                 padding: const EdgeInsets.all(20),
@@ -160,7 +162,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       ),
                     ],
                   ),
-                )),
+                )),*/
           ],
         ),
       ),
