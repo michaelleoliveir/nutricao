@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:social_share/social_share.dart';
 
 class CardapioPage extends StatefulWidget {
   const CardapioPage({super.key});
+
+  compartilhamentoMenu() {
+    SocialShare.shareOptions("Confira o menu Naturel agora");
+  }
 
   @override
   State<CardapioPage> createState() => _CardapioPage();
 }
 
 class _CardapioPage extends State<CardapioPage> {
+  compartilharMenu() {
+    widget.compartilhamentoMenu();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,19 +31,10 @@ class _CardapioPage extends State<CardapioPage> {
           style: TextStyle(color: Color(0xFF435334)),
         ),
         backgroundColor: const Color(0xFFFAF1E4),
-        actions: <Widget>[
-          GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(context, '/home');
-            },
-            child: const IconButton(
-              onPressed: null,
-              icon: Icon(
-                Icons.exit_to_app,
-                color: Color(0xFF435334),
-                size: 35,
-              ),
-            ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.share),
+            onPressed: compartilharMenu,
           ),
         ],
       ),
@@ -234,11 +234,10 @@ class _CardapioPage extends State<CardapioPage> {
                       Text(
                         'Opções de Café:',
                         style: TextStyle(
-                          fontSize: 19,
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xFF435334),
-                          fontStyle: FontStyle.italic
-                        ),
+                            fontSize: 19,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xFF435334),
+                            fontStyle: FontStyle.italic),
                       ),
                       Text(
                         'Pão',
@@ -266,11 +265,10 @@ class _CardapioPage extends State<CardapioPage> {
                       Text(
                         'Opções de Almoço:',
                         style: TextStyle(
-                          fontSize: 19,
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xFF435334),
-                          fontStyle: FontStyle.italic
-                        ),
+                            fontSize: 19,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xFF435334),
+                            fontStyle: FontStyle.italic),
                       ),
                       Text(
                         'Macarrão',
@@ -293,11 +291,10 @@ class _CardapioPage extends State<CardapioPage> {
                       Text(
                         'Opções de Janta:',
                         style: TextStyle(
-                          fontSize: 19,
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xFF435334),
-                          fontStyle: FontStyle.italic
-                        ),
+                            fontSize: 19,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xFF435334),
+                            fontStyle: FontStyle.italic),
                       ),
                       Text(
                         'Pastel',
@@ -347,11 +344,10 @@ class _CardapioPage extends State<CardapioPage> {
                       Text(
                         'Opções de Café:',
                         style: TextStyle(
-                          fontSize: 19,
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xFF435334),
-                          fontStyle: FontStyle.italic
-                        ),
+                            fontSize: 19,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xFF435334),
+                            fontStyle: FontStyle.italic),
                       ),
                       Text(
                         'Salada',
@@ -374,11 +370,10 @@ class _CardapioPage extends State<CardapioPage> {
                       Text(
                         'Opções de Almoço:',
                         style: TextStyle(
-                          fontSize: 19,
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xFF435334),
-                          fontStyle: FontStyle.italic
-                        ),
+                            fontSize: 19,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xFF435334),
+                            fontStyle: FontStyle.italic),
                       ),
                       Text(
                         'Macarrão',
@@ -401,11 +396,10 @@ class _CardapioPage extends State<CardapioPage> {
                       Text(
                         'Opções de Janta:',
                         style: TextStyle(
-                          fontSize: 19,
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xFF435334),
-                          fontStyle: FontStyle.italic
-                        ),
+                            fontSize: 19,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xFF435334),
+                            fontStyle: FontStyle.italic),
                       ),
                       Text(
                         'Refrigerante',
