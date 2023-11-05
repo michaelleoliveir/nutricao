@@ -34,9 +34,7 @@ class _CadastroCardapioState extends State<CadastroCardapio> {
       }
     }
 
-    setState(() {
-      
-    });
+    setState(() {});
   }
 
   @override
@@ -347,38 +345,12 @@ class _CadastroCardapioState extends State<CadastroCardapio> {
           ],
         ),
       ),
-        );
+    );
   }
 
   Widget _buildOpcoesRefeicao(String categoria, List<CheckBoxState> items) {
-    return Container(
-      margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-      padding: const EdgeInsets.only(top: 8, right: 18),
-      width: 350,
-      height: 400,
-      decoration: BoxDecoration(
-        color: const Color(0xffcedebd),
-        borderRadius: BorderRadius.circular(17),
-      ),
-      child: Column(
-        children: [
-          Container(
-            margin: const EdgeInsets.only(top: 15),
-            child: Text(
-              'Opções de $categoria',
-              textAlign: TextAlign.left,
-              style: const TextStyle(
-                fontSize: 17,
-                color: Color(0xff435334),
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-          ),
-          Column(
-            children: items.map(buildSingleCheckBox).toList(),
-          ),
-        ],
-      ),
+    return Column(
+      children: items.map(buildSingleCheckBox).toList(),
     );
   }
 
