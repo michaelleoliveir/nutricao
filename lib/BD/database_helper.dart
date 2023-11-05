@@ -205,4 +205,16 @@ class Database {
       debugPrint("Ocorreu algum erro ao remover o registro: $err");
     }
   }
+
+  static Future<List<Map<String, dynamic>>> consultaUsuariosPorNome(
+      String searchTerm) async {
+    final database = await Database.database();
+    final List<Map<String, dynamic>> result = await database.query(
+      'usuario',
+      where: 'nome LIKE ?',
+      whereArgs: ['%$searchTerm%'],
+    );
+
+    return result;
+  }
 }

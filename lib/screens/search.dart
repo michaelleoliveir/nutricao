@@ -2,6 +2,7 @@ import 'package:nutricao/items/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 import 'package:nutricao/screens/main.dart';
+import 'package:nutricao/BD/database_helper.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key}) : super(key: key);
@@ -11,6 +12,21 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
+  List<Map<String, dynamic>> searchResults = [];
+
+  void searchUsers(String searchTerm) async {
+    setState(() {
+      searchResults = []; // Limpa os resultados anteriores
+    });
+
+    if (searchTerm.isNotEmpty) {
+      final results = await Database.consultaUsuariosPorNome(searchTerm);
+      setState(() {
+        searchResults = results;
+      });
+    }
+  }
+
   TextEditingController searchController = TextEditingController();
   static List previousSearchs = [];
 
@@ -25,47 +41,48 @@ class _SearchScreenState extends State<SearchScreen> {
         child: Column(
           children: [
             // Search Bar
-            SingleChildScrollView(
-              child: Container(
-                color: const Color(0xFFFAF1E4),
-                child: Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Row(
-                    children: [
-                      IconButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          icon: const Icon(
-                            Icons.arrow_back_ios,
-                            color: Color(0xFF435334),
-                          )),
-                      Expanded(
-                        child: CostomTextFormFild(
-                          hint: "Pesquisar",
-                          prefixIcon: IconlyLight.search,
-                          controller: searchController,
-                          filled: true,
-                          suffixIcon: searchController.text.isEmpty
-                              ? null
-                              : Icons.cancel_sharp,
-                          onTapSuffixIcon: () {
-                            searchController.clear();
-                          },
-                          onChanged: (pure) {
-                            setState(() {});
-                          },
-                          onEditingComplete: () {
-                            previousSearchs.add(searchController.text);
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const MainPage()));
-                          },
-                        ),
+            Container(
+              color: const Color(0xFFFAF1E4),
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Row(
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: const Icon(
+                        Icons.arrow_back_ios,
+                        color: Color(0xFF435334),
                       ),
-                    ],
-                  ),
+                    ),
+                    Expanded(
+                      child: CostomTextFormFild(
+                        hint: "Pesquisar",
+                        prefixIcon: IconlyLight.search,
+                        controller: searchController,
+                        filled: true,
+                        suffixIcon: searchController.text.isEmpty
+                            ? null
+                            : Icons.cancel_sharp,
+                        onTapSuffixIcon: () {
+                          searchController.clear();
+                        },
+                        onChanged: (value) {
+                          searchUsers(value);
+                        },
+                        onEditingComplete: () {
+                          previousSearchs.add(searchController.text);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const MainPage(),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -74,20 +91,38 @@ class _SearchScreenState extends State<SearchScreen> {
               height: 8,
             ),
 
+            // Resultados da pesquisa
+            if (searchResults.isNotEmpty)
+              Container(
+                height: 200,
+                child: ListView.builder(
+                  itemCount: searchResults.length,
+                  itemBuilder: (context, index) {
+                    final user = searchResults[index];
+                    return ListTile(
+                      title: Text(user['nome']),
+                      // Adicione outros elementos relevantes do usuário aqui
+                    );
+                  },
+                ),
+              ),
+
             // Previous Searches
             SingleChildScrollView(
               child: Container(
                 color: const Color.fromARGB(225, 239, 230, 216),
-                child: ListView.builder(
+                child: Expanded(
+                  child: ListView.builder(
                     physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemCount: previousSearchs.length,
-                    itemBuilder: (context, index) =>
-                        previousSearchsItem(index)),
+                    itemBuilder: (context, index) => previousSearchsItem(index),
+                  ),
+                ),
               ),
             ),
             const SizedBox(
-              height: 50,
+              height: 10,
             ),
 
             // Search Suggestions
@@ -101,10 +136,10 @@ class _SearchScreenState extends State<SearchScreen> {
                     children: [
                       Text(
                         "Pesquisas Sugeridas",
-                        style: Theme.of(context).textTheme.displayMedium,
+                        style: Theme.of(context).textTheme.displaySmall,
                       ),
                       const SizedBox(
-                        height: 24,
+                        height: 15,
                       ),
                       Row(
                         children: [
