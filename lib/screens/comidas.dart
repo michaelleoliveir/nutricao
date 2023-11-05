@@ -117,7 +117,7 @@ class _HomePageState extends State<ComidasPage> {
                         onPressed: () {
                           pick(ImageSource.gallery);
                         },
-                        icon: Icon(Icons.add_photo_alternate_outlined),
+                        icon: const Icon(Icons.add_photo_alternate_outlined),
                       ),
                     ],
                   ),
@@ -279,7 +279,7 @@ class _HomePageState extends State<ComidasPage> {
           : ListView.builder(
               itemCount: _registros.length,
               itemBuilder: (context, index) => Card(
-                color: Color.fromARGB(255, 237, 250, 211),
+                color: const Color.fromARGB(255, 237, 250, 211),
                 margin: const EdgeInsets.all(15),
                 child: ListTile(
                     title: Text(_registros[index]['nome']),
