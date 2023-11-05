@@ -121,7 +121,7 @@ class _HomePageState extends State<ProfilePage> {
                         onPressed: () {
                           pick(ImageSource.gallery);
                         },
-                        icon: Icon(Icons.add_photo_alternate_outlined),
+                        icon: const Icon(Icons.add_photo_alternate_outlined),
                       ),
                     ],
                   ),
