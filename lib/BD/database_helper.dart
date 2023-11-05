@@ -206,11 +206,25 @@ class Database {
     }
   }
 
+  //consulta de usuario por nome
   static Future<List<Map<String, dynamic>>> consultaUsuariosPorNome(
       String searchTerm) async {
     final database = await Database.database();
     final List<Map<String, dynamic>> result = await database.query(
       'usuario',
+      where: 'nome LIKE ?',
+      whereArgs: ['%$searchTerm%'],
+    );
+
+    return result;
+  }
+
+  // Método para consultar itens por nome
+  static Future<List<Map<String, dynamic>>> consultaItensPorNome(
+      String searchTerm) async {
+    final database = await Database.database();
+    final List<Map<String, dynamic>> result = await database.query(
+      'itens',
       where: 'nome LIKE ?',
       whereArgs: ['%$searchTerm%'],
     );
