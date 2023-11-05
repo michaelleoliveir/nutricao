@@ -14,14 +14,14 @@ class LoginPage extends StatelessWidget {
                   fit: BoxFit.cover,
                   colorFilter:
                       ColorFilter.mode(Color(0xFFFAF1E4), BlendMode.dstATop),
-                  opacity: 0.30)),
+                  opacity: 0.25)),
         ),
         Scaffold(
           backgroundColor: Colors.transparent,
           body: Stack(
             children: [
               const Positioned(
-                top: 70, // Ajuste a posição vertical
+                top: 85, // Ajuste a posição vertical
                 left: 89, // Ajuste a posição horizontal
                 child: Image(
                   image: AssetImage('assets/logo.png'),
@@ -33,7 +33,7 @@ class LoginPage extends StatelessWidget {
                 child: Column(
                   children: <Widget>[
                     const SizedBox(
-                      height: 270,
+                      height: 285,
                     ),
                     Container(
                       margin: const EdgeInsets.all(20),
@@ -82,14 +82,15 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
               const Positioned(
+                top: 14,
                 left: 232,
                 child: Text(
                   'Esqueci minha senha',
-                  style: TextStyle(height: 65, color: Color(0xFF435334)),
+                  style: TextStyle(height: 65, color: Color(0xFF435334), fontWeight: FontWeight.w500),
                 ),
               ),
               Container(
-                height: 550,
+                height: 560,
                 alignment: Alignment.bottomCenter,
                 child: ElevatedButton(
                   onPressed: () {
@@ -124,7 +125,7 @@ class LoginPage extends StatelessWidget {
                 ],
               ),*/
               Positioned(
-                top: 579,
+                top: 585,
                 left: 71,
                 child: Container(
                   alignment: Alignment.center,
@@ -138,15 +139,16 @@ class LoginPage extends StatelessWidget {
                   Navigator.pushNamed(context, '/profile');
                 },
                 child: const Padding(
-                  padding: EdgeInsets.only(top: 600, left: 149),
+                  padding: EdgeInsets.only(top: 608, left: 149),
                   child: Text(
                     'Cadastre-se',
                     style: TextStyle(
-                      height: 2,
-                      color: Color(0xFF435334),
-                      fontSize: 18,
-                      //backgroundColor: Color.fromARGB(230, 175, 211, 182),
-                    ),
+                        height: 2,
+                        color: Color(0xFF435334),
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600
+                        //backgroundColor: Color.fromARGB(230, 175, 211, 182),
+                        ),
                   ),
                 ),
               )
