@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:nutricao/items/checkbox_state.dart';
+import 'package:nutricao/BD/database_helper.dart';
 
 class CadastroCardapio extends StatefulWidget {
   const CadastroCardapio({super.key});
@@ -10,32 +11,33 @@ class CadastroCardapio extends StatefulWidget {
 }
 
 class _CadastroCardapioState extends State<CadastroCardapio> {
-  final cafe = [
-    CheckBoxState(title: 'Biscoito'),
-    CheckBoxState(title: 'Bolacha'),
-    CheckBoxState(title: 'Achocolatado'),
-    CheckBoxState(title: 'Bolo'),
-    CheckBoxState(title: 'Café'),
-    CheckBoxState(title: 'Cereal'),
-  ];
+  Map<String, List<CheckBoxState>> categorias = {
+    'Café': [],
+    'Almoço': [],
+    'Janta': [],
+  };
 
-  final almoco = [
-    CheckBoxState(title: 'Massa'),
-    CheckBoxState(title: 'Arroz'),
-    CheckBoxState(title: 'Feijão'),
-    CheckBoxState(title: 'Sushi'),
-    CheckBoxState(title: 'Salada'),
-    CheckBoxState(title: 'Carne vermelha'),
-  ];
+  @override
+  void initState() {
+    super.initState();
+    _carregarItensDoBanco();
+  }
 
-  final janta = [
-    CheckBoxState(title: 'Pizza'),
-    CheckBoxState(title: 'Hamburger'),
-    CheckBoxState(title: 'Sushi'),
-    CheckBoxState(title: 'Esfiha'),
-    CheckBoxState(title: 'Pão'),
-    CheckBoxState(title: 'Bolachas'),
-  ];
+  Future<void> _carregarItensDoBanco() async {
+    final itens = await Database.exibeTodosRegistrosIten();
+
+    for (var item in itens) {
+      final checkBoxState = CheckBoxState(title: item['nome']);
+      final categoria = item['categoria'];
+      if (categorias.containsKey(categoria)) {
+        categorias[categoria]!.add(checkBoxState);
+      }
+    }
+
+    setState(() {
+      
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -211,9 +213,7 @@ class _CadastroCardapioState extends State<CadastroCardapio> {
                           fontWeight: FontWeight.w500),
                     ),
                   ),
-                  Column(
-                    children: [...cafe.map(buildSingleCheckBox).toList()],
-                  )
+                  _buildOpcoesRefeicao('Café', categorias['Café']!),
                 ],
               ),
             ),
@@ -242,9 +242,7 @@ class _CadastroCardapioState extends State<CadastroCardapio> {
                           fontWeight: FontWeight.w500),
                     ),
                   ),
-                  Column(
-                    children: [...almoco.map(buildSingleCheckBox).toList()],
-                  )
+                  _buildOpcoesRefeicao('Almoço', categorias['Almoço']!),
                 ],
               ),
             ),
@@ -273,9 +271,7 @@ class _CadastroCardapioState extends State<CadastroCardapio> {
                           fontWeight: FontWeight.w500),
                     ),
                   ),
-                  Column(
-                    children: [...janta.map(buildSingleCheckBox).toList()],
-                  )
+                  _buildOpcoesRefeicao('Janta', categorias['Janta']!),
                 ],
               ),
             ),
@@ -347,9 +343,41 @@ class _CadastroCardapioState extends State<CadastroCardapio> {
 
             const SizedBox(
               height: 10,
-            )
+            ),
           ],
         ),
+      ),
+        );
+  }
+
+  Widget _buildOpcoesRefeicao(String categoria, List<CheckBoxState> items) {
+    return Container(
+      margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+      padding: const EdgeInsets.only(top: 8, right: 18),
+      width: 350,
+      height: 400,
+      decoration: BoxDecoration(
+        color: const Color(0xffcedebd),
+        borderRadius: BorderRadius.circular(17),
+      ),
+      child: Column(
+        children: [
+          Container(
+            margin: const EdgeInsets.only(top: 15),
+            child: Text(
+              'Opções de $categoria',
+              textAlign: TextAlign.left,
+              style: const TextStyle(
+                fontSize: 17,
+                color: Color(0xff435334),
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
+          Column(
+            children: items.map(buildSingleCheckBox).toList(),
+          ),
+        ],
       ),
     );
   }
