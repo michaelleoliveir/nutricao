@@ -138,14 +138,13 @@ class LoginPage extends StatelessWidget {
                   Navigator.pushNamed(context, '/profile');
                 },
                 child: const Padding(
-                  padding: EdgeInsets.only(top: 600, left: 135),
+                  padding: EdgeInsets.only(top: 600, left: 149),
                   child: Text(
                     'Cadastre-se',
                     style: TextStyle(
                       height: 2,
                       color: Color(0xFF435334),
-                      fontSize: 20,
-                      decoration: TextDecoration.underline,
+                      fontSize: 18,
                       //backgroundColor: Color.fromARGB(230, 175, 211, 182),
                     ),
                   ),
